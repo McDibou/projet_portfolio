@@ -50,10 +50,10 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY
         <tr>
             <td><?= $item['name_langages'] ?></td>
             <td><?= $item['date_contents'] ?></td>
-            <td><?= $item['title_contents'] ?></td>
-            <td><?= $item['text_contents'] ?></td>
-            <td><a href="<?= $item['link_contents'] ?>" target="_blank"><?= $item['link_contents'] ?></a></td>
-            <td><?= $item['name_pics'] ?>
+            <td><?= more($item['title_contents']) ?></td>
+            <td><?= more($item['text_contents']) ?></td>
+            <td><a href="<?= $item['link_contents'] ?>" target="_blank"><?= more($item['link_contents']) ?></a></td>
+            <td><?= more($item['name_pics']) ?>
                 <form method="post">
                     <button type="submit" name="view_update_pics" value="<?= $item['id_pics'] ?>">*</button>
                 </form>

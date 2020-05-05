@@ -1,6 +1,8 @@
 <?php
 if (isset($_POST['forms'])) {
 
+    $user = select('users','pseudo_users',$_SESSION['pseudo'],$db);
+
     $id = $user['id_users'];
     $title = analyse($_POST['title_forms']);
     $text = analyse($_POST['text_forms']);

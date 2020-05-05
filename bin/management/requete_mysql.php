@@ -4,6 +4,15 @@
 //REQUETE SELECT GLOBAL
 //============================================================================================//
 
+function more($text)
+{
+    if (strlen($text) > 9) {
+        return substr($text,0,9).'...';
+    } else {
+        return $text;
+    }
+}
+
 function analyse($name)
 {
     return htmlspecialchars(strip_tags(trim($name)), ENT_QUOTES, 'UTF-8');

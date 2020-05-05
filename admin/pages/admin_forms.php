@@ -27,11 +27,11 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY
     <?php while ($item = mysqli_fetch_assoc($content_mail)) { ?>
         <tr>
             <td><?= $item['date_forms'] ?></td>
-            <td><?= $item['title_forms'] ?></td>
-            <td><?= $item['text_forms'] ?></td>
-            <td><?= $item['name_users'] ?></td>
-            <td><?= $item['username_users'] ?></td>
-            <td><?= $item['mail_users'] ?></td>
+            <td><?= more($item['title_forms']) ?></td>
+            <td><?= more($item['text_forms']) ?></td>
+            <td><?= more($item['name_users']) ?></td>
+            <td><?= more($item['username_users']) ?></td>
+            <td><?= more($item['mail_users']) ?></td>
             <td>
                 <a href="mailto :<?= $item['mail_users'] ?>subject=PORFOLIO%20WEB%202020" target="_blank">repondre</a>
             </td>
