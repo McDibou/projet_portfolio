@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['import'])) {
+if (isset($_POST['import']) && isset($_SESSION['role'])) {
 
     $img = date('U') . '_' . basename($_FILES['name_pics']['name']);
     $title = $_POST['gallery'];
@@ -10,18 +10,24 @@ if (isset($_POST['import'])) {
     crudCreateImg($img, $title, $db);
 
     header('Location: ?p=admin_gallery');
-
+    exit();
 }
 
-if (isset($_POST['visible'])) {
+if (isset($_POST['visible']) && isset($_SESSION['role'])) {
     imgVisisbility($_POST['visible'], 0, $db);
+
+    header('Location: ?p=admin_gallery');
+    exit();
 }
 
-if (isset($_POST['invisible'])) {
+if (isset($_POST['invisible']) && isset($_SESSION['role'])) {
     imgVisisbility($_POST['invisible'], 1, $db);
+
+    header('Location: ?p=admin_gallery');
+    exit();
 }
 
-if (isset($_POST['oui'])) {
+if (isset($_POST['oui']) && isset($_SESSION['role'])) {
 
     $img = crudImgName($_POST['oui'], $db);
     $img = $img['name_pics'];
@@ -36,5 +42,7 @@ if (isset($_POST['oui'])) {
     }
 
     crudDeleteImg($_POST['oui'], $db);
+
     header('Location: ?p=admin_gallery');
+    exit();
 }

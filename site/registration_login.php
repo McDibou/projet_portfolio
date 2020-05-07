@@ -13,7 +13,7 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATO
     <label for="name_users">
         <input value="<?= (!empty($name_users)) ? $name_users : null; ?>" type="text" name="name_users"
                placeholder="<?= $content[0] ?>" pattern="[A-Za-z '-]+$" maxlength="80" required>
-    </label>
+    </label
     <label for="username_users">
         <input value="<?= (!empty($username_users)) ? $username_users : null; ?>" type="text" name="username_users"
                placeholder="<?= $content[1] ?>" pattern="[A-Za-z '-]+$" maxlength="80" required>
@@ -40,7 +40,7 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATO
 
 <form action="" method="post">
     <label for="pseudo">
-        <input value="<?= (!empty($psd_enter)) ? $psd_enter : null; ?>" type="text" name="pseudo"
+        <input value="<?= (!empty($pseudo_enter)) ? $pseudo_enter : null; ?>" type="text" name="pseudo"
                placeholder="<?= $content[3] ?>" required>
     </label>
     <label for="password">

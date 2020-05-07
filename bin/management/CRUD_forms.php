@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['send_me'])) {
+if (isset($_POST['send_me']) && isset($_SESSION['role'])) {
 
     $item = selectForms(($_POST['send_me']), $db);
 
@@ -14,16 +14,21 @@ if (isset($_POST['send_me'])) {
     $header .= 'From: WEB2020 <web2020.adrien@gmail.com>\r\n';
 
     mail($to, $subject, $message, $header);
+
+    header('location: ?p=admin_forms');
+    exit();
 }
 
 
-if (isset($_POST['oui'])) {
+if (isset($_POST['oui']) && isset($_SESSION['role'])) {
 
     deleteForms($_POST['oui'], $db);
+
     header('location: ?p=admin_forms');
+    exit();
 
 }
 
-if (isset($_POST['read'])) {
+if (isset($_POST['read']) && isset($_SESSION['role'])) {
     $read = selectForms($_POST['read'], $db);
 }

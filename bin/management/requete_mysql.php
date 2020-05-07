@@ -169,7 +169,6 @@ function crudCreateImg($img, $title, $db)
 function crudUpdate($id, $title, $text, $link, $db)
 {
     mysqli_query($db, "UPDATE contents SET title_contents='$title', text_contents=' $text', link_contents='$link' WHERE id_contents = $id");
-    header('Location: ?p=admin_reference');
 }
 
 // CRUD_reference.php
@@ -182,14 +181,12 @@ function crudUpdatePics($id, $img_up, $img, $db)
 function crudVisisbility($id, $active, $db)
 {
     mysqli_query($db, "UPDATE contents SET active_contents = $active WHERE id_contents = $id");
-    header('Location: ?p=admin_reference');
 }
 
 // CRUD_gallery.php
 function imgVisisbility($id, $active, $db)
 {
     mysqli_query($db, "UPDATE pics SET active_pics = $active WHERE id_pics = $id");
-    header('Location: ?p=admin_gallery');
 }
 
 //============================================================================================//
@@ -210,8 +207,6 @@ function crudDelete($delete, $db)
 
     mysqli_commit($db);
     mysqli_close($db);
-
-    header('Location: ?p=admin_reference');
 }
 
 // CRUD_forms.php

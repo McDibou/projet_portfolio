@@ -4,7 +4,6 @@ session_start();
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'management' . DIRECTORY_SEPARATOR . 'config.php';
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'management' . DIRECTORY_SEPARATOR . 'requete_sql.php';
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'management' . DIRECTORY_SEPARATOR . 'requete_mysql.php';
-
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'interface' . DIRECTORY_SEPARATOR . 'header.php';
 
 if (empty($_SESSION['pseudo'])) {
@@ -27,33 +26,18 @@ if (empty($_SESSION['pseudo'])) {
                 include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'gallery.php';
                 break;
 
-            case "gallery_inktober":
-                include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'gallery' . DIRECTORY_SEPARATOR . 'inktober.php';
-                break;
-            case "gallery_poster":
-                include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'gallery' . DIRECTORY_SEPARATOR . 'poster.php';
-                break;
-            case "gallery_web_site":
-                include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'gallery' . DIRECTORY_SEPARATOR . 'web_site.php';
-                break;
-
             case "reference":
                 include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'reference.php';
                 break;
+
             case "tutorial":
                 include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'tutorial.php';
-                break;
-
-            case "tutorial_flip_card":
-                include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'tutorial' . DIRECTORY_SEPARATOR . 'flip_card.php';
-                break;
-            case "tutorial_grunt":
-                include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'tutorial' . DIRECTORY_SEPARATOR . 'grunt.php';
                 break;
 
             case "contact":
                 include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'contact.php';
                 break;
+
             case "resume":
                 include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'resume.php';
                 break;
@@ -65,6 +49,7 @@ if (empty($_SESSION['pseudo'])) {
                     include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'error404.php';
                 }
                 break;
+
             case "admin_forms":
                 if (isset($_SESSION['role'])) {
                     include __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'admin_forms.php';
@@ -72,6 +57,7 @@ if (empty($_SESSION['pseudo'])) {
                     include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'error404.php';
                 }
                 break;
+
             case "admin_gallery":
                 if (isset($_SESSION['role'])) {
                     include __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'admin_gallery.php';
@@ -79,6 +65,7 @@ if (empty($_SESSION['pseudo'])) {
                     include __DIR__ . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR . 'error404.php';
                 }
                 break;
+
             case "admin_reference":
                 if (isset($_SESSION['role'])) {
                     include __DIR__ . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'admin_reference.php';

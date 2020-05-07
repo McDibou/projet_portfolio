@@ -1,0 +1,355 @@
+//------------------------------------------------------------------------------------//
+	PAGE HEADER
+//------------------------------------------------------------------------------------//
+	
+	Menu
+-Home
+-Galeries
+-Favoris
+-Tutoriel
+-Contactez moi
+-Qui suis-je ?
+
+-Admin
+-Déconnexion
+
+-fr
+-en
+
+//------------------------------------------------------------------------------------//
+	PAGE ENREGISTREMENT
+//------------------------------------------------------------------------------------//
+
+
+	Enregistrement & Connexion
+-Nom
+-Prenom
+-Adresse email
+-Pseudo
+-Mot de passe
+-Comfirmation mot de passe
+
+-Pseudo
+-Mot de passe
+
+
++verify_connect.php
+
+-Cet email est deja utiliser, veillez en resenseigner une autre.
+-Ce pseudo est deja utiliser, veillez en resenseigner un autre.
+-Les mots de passe ne sont pas identiques.
+
+-Merci pour votre inscription, un mail de confirmation vous sera envoyé.
+
+-Validation d'inscription / Portfolio
+-??TEXT??
+
+-Pseudo ou mot de passe invalide.
+
+//------------------------------------------------------------------------------------//
+	PAGE HOME
+//------------------------------------------------------------------------------------//
+
+-Favories
+go
+-Galeries
+go
+-Tutoriels
+go
+
+//------------------------------------------------------------------------------------//
+	PAGE GALLERIE
+//------------------------------------------------------------------------------------//
+
+Ma gallerie
+
+" Le dessin n'est pas la forme, il est la manière de voir la forme. " prov. E. Degas
+
+----------------------------------------------------------------------------------------
+
+-Inktober
+Inktober est un défi qui se déroule entre pendant le mois d'octobre, dont le but est de produire un dessin par jour suivant une liste differente chaque année.
+
+----------------------------------------------------------------------------------------
+
+-Affiches
+Vous trouverez ci dessous, quelque elaborations d'affiche de soirées pour le groupe de dj "Le Fieu Soundsystem"
+
+----------------------------------------------------------------------------------------
+
+-Site Web
+Voici l'elaboration des sites web crees lors de la formation au centre de formation 2 milles.
+
+//------------------------------------------------------------------------------------//
+	PAGE REFERENCE
+//------------------------------------------------------------------------------------//
+
+Mes favoris
+
+Bienvenu, ici vous retrouvez toutes mes sources d'inspirationc et d'astuce qui me sont utile à l'apprentassige au develloppement web.
+
+----------------------------------------------------------------------------------------
+
+-openclassroom
+Formation en ligne qui propose des tutoriels ou n'importe quel membre du site peut être auteur.
+https://openclassrooms.com/
+
+----------------------------------------------------------------------------------------
+
+-W3schools
+Destiné à l'apprentissage en ligne des languages Web.
+https://www.w3schools.com/
+
+----------------------------------------------------------------------------------------
+
+-php.net
+Wiki officiel du langages php.
+https://www.php.net/
+
+----------------------------------------------------------------------------------------
+
+-csstricks
+Forum regroupe les idees et travailles sur le develloppement front-end.
+https://css-tricks.com/
+
+----------------------------------------------------------------------------------------
+
+-stackoverflow
+Forum d'entraide centrer sur le devellopement web.
+https://stackoverflow.com/
+
+----------------------------------------------------------------------------------------
+
+-developpez.com
+Forum d'imformation liés à l'informatique et aux développements de logiciels.
+https://www.developpez.com/
+
+----------------------------------------------------------------------------------------
+
+-developpez.net
+Forum d'entraide et de tutoriel sur le web.
+https://www.developpez.net/forums/
+
+//------------------------------------------------------------------------------------//
+	PAGE TUTORIAL
+//------------------------------------------------------------------------------------//
+
+Mes tutoriels
+
+----------------------------------------------------------------------------------------
+
+PROPRIETER CSS 3D TRANSFORME :
+
+Je vais vous présenter le travail de David DeSandro sur la création de volume en 3D avec CSS. 
+
+Bien que la 3D existe depuis longtemps dans le web avec canvas, Three.js (anciennement WebGL) ou encore notre défunt Flash.
+Depuis 2009, les développeurs peuvent profiter du module de transformation CSS 3D.
+Ce fut un soulagement pour les front-ends qui jusqu'à ce moment s'armaient de patience à la maîtrise d'un langage tiers pour donner ne serait ce qu'un peu de volume à leur site.
+
+Ce tutoriel, vous propose le cheminement de construction d'un volume 3D, étapes par étapes.
+En commençant par une simple perspective d'une surface plane jusqu'à un carrousel 3D interactif.
+Ici pas de chipotage, il va à l'essentiel et pour les plus flemmards d'entre nous, un CodePen est fourni à chaque étape.
+
+Sans plus attendre, voici le lien vers ce tutoriel, aussi intéressant qu'enrichissant, une fois maîtrisé vous donneras un panel de perspective pour votre site.
+
+https://3dtransforms.desandro.com/
+
+Bon code.
+
+https://www.w3.org/TR/css-transforms-1/
+https://desandro.com/ 
+
+----------------------------------------------------------------------------------------
+
+QU'ES-CE QUE C'EST GULP :
+
+Gulp est ce qu'on appelle un "Javascript task-runner" ou en français "Automatiseur de tâches" ce qui veut dire que ce toolkit est capable d'automatiser des tâches répétitives
+et d'accélérer le développement d'un projet à l'aide de plugins : principalement du coté front-end.
+
+
+Ces taches sont aussi utiles que différente les unes des autres :
+
+- créer un serveur local.
+- Rechargement automatique le navigateur.
+- Optimisation et compression d'images.
+- Minifier et optimiser du CSS ou du JavaScript.
+- Création ou suppression de dossiers ou de fichiers.
+- Etc ...
+
+Il existe près de 4000 plugins pour l'instant. Qui, une fois choisit et intégré à votre projet, vous feras gagnez enorménent de temps de production.
+
+Je vous propose de vous montrer comment implémenter Gulp à vos projets suivi d'un exemple.
+
+C'est parti :
+
+Pour commencer vous aurez besoin d'installer Node.js.
+C'est un environnement Javascript qui est équipé de plugins nommé "npm". Nous aurons besoin de ce dernier pour mettre en place notre environnement Gulp.
+
+Une fois Node.js installé, ouvré un terminal de commande (cmd ou powershell) n'importe où :
+`npm install --global gulp-cli`
+Cette commande aura pour effet d'installer Gulp de manière globale sur votre ordinateur, et une fois pour toutes.
+
+
+Nous allons, maintenant, initialiser gulp dans vos projets. Ouvrez un terminal de commande à la racine de votre projet:
+`npm init`
+
+On vous demandera d'entrer plusieurs informations sur votre projet : nom, version, description, etc..
+Ne vous en faites pas vous pourrez modifier ses informations par la suite (dans le fichier package.json).
+
+Il en suit, la partie la plus importante et la plus amusante : le choix des plugins et leur installation.
+Pour ce faire direction https://gulpjs.com/plugins
+
+Une fois votre choix fait, il faudra installer l'ensemble des plugins via votre terminal :
+`npm install --save-dev`
+Ils devront être entrés un à un.
+
+Si vous souhaitez ne pas vous prendre la tête pour le moment, je vous proposez d'installer les modules principaux de Gulp :
+`npm install gulp --save-dev`
+
+Une fois fait, un dossier `node_modules` devrait apparaître dans votre projet. 
+Voilà, il ne reste plus qu'a créer vos automatisations.
+
+
+Pour cela, vous allez devoir créer un fichier à la racine de votre projet: gulpfile.js.
+Il sert à gérer les taches, leurs options, leurs sources et destinations.
+Dans celui-ci, commencez par déclarer toutes les variables dont vous aurez besoin.
+```
+// Requis
+var gulp = require('gulp');
+
+// Include plugins
+var plugins = require('gulp-load-plugins')();  // tous les plugins de package.json
+
+// Variables de chemins
+var source = './src';  // dossier de travail
+var destination = './dist'; // dossier à livrer.
+```
+
+
+À présent, dans ce même fichier, nous aller créer notre première tache : minifier le css
+```
+ gulp.task('minifier', function () { 		// Tâche "minifier" 
+	return gulp.src(source + *.css) 	//copie du fichier à modifier 
+	.pipe(plugins.csso()) 			//application du plugin sur le fichier 
+		// ici plus de plugins Gulp à exécuter 
+	.pipe(gulp.dest(destination)); 		//destitation du fichier modifier});
+```
+
+
+Pour exécuter cette tâche, il vous faudra réouvrir votre terminal dans votre projet:
+`gulp minifier`
+
+Par la suite, quand vous commencerez à avoir plusieurs taches vous pourrez les regrouper et ainsi donc créer plusieurs zones de devellopement
+
+Par exemple:
+```
+// Tâche "build"
+gulp.task('build', ['tache']);
+
+// Tâche "prod" = Build + minifier
+gulp.task('prod', ['build', 'minifier']);
+```
+
+Voilà, j'espère que cette introduction a Gulp vous a plu. Et que votre curiosité est satisfaite.
+Dans tous les cas, l'usage de cet outil améliora et optimisera votre façon de travailler.
+
+Bon code.
+
+//------------------------------------------------------------------------------------//
+	PAGE CV
+//------------------------------------------------------------------------------------//
+
+
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN
+//------------------------------------------------------------------------------------//
+
+-Espace Formulaires;
+-Espace galeries.
+-Espace favoris.
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN FORMS
+//------------------------------------------------------------------------------------//
+
+Espace Formulaires:
+
+-date
+-titre
+-texte
+-nom
+-prenom
+-email
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN GALLLERIES
+//------------------------------------------------------------------------------------//
+
+Espace galeries
+
+-rajouter une image :
+Choisir la categorie - importer
+
+ATTENTION
+Vous allez supprimer : name_pics
+oui/non
+
+Inktober
+Affiches
+sites web
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN REFERENCES
+//------------------------------------------------------------------------------------//
+
+Espace favoris
+
+-Le titre fr
+-Le texte fr
+-Le titre en
+-Le texte en
+
+-Le lien
+-L'image
+
+
+-langage
+-date
+-titre
+-texte
+-lien
+-image
+
+Lire/Mise à jour/Supprimer
+
+ATTENTION
+Si vous supprimer cette article, 
+vous devrez supprimer l'artcile dans l'autre langue
+oui/non
+
+//------------------------------------------------------------------------------------//
+	PAGE CONTACT
+//------------------------------------------------------------------------------------//
+
+Contacter moi
+
+-Sujet
+-Message
+
+Envoyer
+
+
++verify_contact.php
+
+-Receptions avis
+-??HTML??
+
+//------------------------------------------------------------------------------------//
+	PAGE 404
+//------------------------------------------------------------------------------------//
+
+Page non trouvée.
+
+La page que vous avez demandée n'existe pas.
+Retour - Accueil
