@@ -2,11 +2,12 @@
 	PAGE HEADER
 //------------------------------------------------------------------------------------//
 	
-	Menu
+Menu
+
 -Home
--Galeries
+-Galerie
 -Favoris
--Tutoriel
+-Tutoriels
 -Contactez moi
 -Qui suis-je ?
 
@@ -16,27 +17,28 @@
 -fr
 -en
 
+
 //------------------------------------------------------------------------------------//
 	PAGE ENREGISTREMENT
 //------------------------------------------------------------------------------------//
 
 
-	Enregistrement & Connexion
+Enregistrement & Connexion
+
 -Nom
--Prenom
+-Prénom
 -Adresse email
 -Pseudo
 -Mot de passe
--Comfirmation mot de passe
+-Confirmation mot de passe
 
 -Pseudo
 -Mot de passe
 
-
 +verify_connect.php
 
--Cet email est deja utiliser, veillez en resenseigner une autre.
--Ce pseudo est deja utiliser, veillez en resenseigner un autre.
+-Cet e-mail est déjà utilisé, veillez en renseigner une autre.
+-Ce pseudo est déjà utilisé, veillez en renseigner un autre.
 -Les mots de passe ne sont pas identiques.
 
 -Merci pour votre inscription, un mail de confirmation vous sera envoyé.
@@ -50,35 +52,28 @@
 	PAGE HOME
 //------------------------------------------------------------------------------------//
 
--Favories
-go
--Galeries
-go
+-Favoris
+-Galerie
 -Tutoriels
+
 go
 
 //------------------------------------------------------------------------------------//
 	PAGE GALLERIE
 //------------------------------------------------------------------------------------//
 
-Ma gallerie
+Ma galerie
 
 " Le dessin n'est pas la forme, il est la manière de voir la forme. " prov. E. Degas
 
-----------------------------------------------------------------------------------------
-
 -Inktober
-Inktober est un défi qui se déroule entre pendant le mois d'octobre, dont le but est de produire un dessin par jour suivant une liste differente chaque année.
-
-----------------------------------------------------------------------------------------
+Inktober est un défi qui se déroule pendant le mois d'octobre, dont le but est de produire un dessin par jour suivant une liste différente chaque année.
 
 -Affiches
-Vous trouverez ci dessous, quelque elaborations d'affiche de soirées pour le groupe de dj "Le Fieu Soundsystem"
-
-----------------------------------------------------------------------------------------
+Vous trouverez ci-dessous, quelque élaborations d'affiche de soirées pour le groupe de dj "Le Fieu Soundsystem"
 
 -Site Web
-Voici l'elaboration des sites web crees lors de la formation au centre de formation 2 milles.
+Voici l'élaboration des sites web crées lors de la formation au centre de formation 2 milles.
 
 //------------------------------------------------------------------------------------//
 	PAGE REFERENCE
@@ -86,45 +81,31 @@ Voici l'elaboration des sites web crees lors de la formation au centre de format
 
 Mes favoris
 
-Bienvenu, ici vous retrouvez toutes mes sources d'inspirationc et d'astuce qui me sont utile à l'apprentassige au develloppement web.
-
-----------------------------------------------------------------------------------------
+Bienvenu, ici vous retrouvez toutes mes sources d'inspiration et d'astuce qui me sont utile à l'apprentissage au développement web.
 
 -openclassroom
 Formation en ligne qui propose des tutoriels ou n'importe quel membre du site peut être auteur.
 https://openclassrooms.com/
 
-----------------------------------------------------------------------------------------
-
 -W3schools
-Destiné à l'apprentissage en ligne des languages Web.
+Destiné à l'apprentissage en ligne des langages Web.
 https://www.w3schools.com/
-
-----------------------------------------------------------------------------------------
 
 -php.net
 Wiki officiel du langages php.
 https://www.php.net/
 
-----------------------------------------------------------------------------------------
-
 -csstricks
-Forum regroupe les idees et travailles sur le develloppement front-end.
+Forum regroupe les idées et travailles sur le développement front-end.
 https://css-tricks.com/
 
-----------------------------------------------------------------------------------------
-
 -stackoverflow
-Forum d'entraide centrer sur le devellopement web.
+Forum d'entraide centré sur le développement web.
 https://stackoverflow.com/
 
-----------------------------------------------------------------------------------------
-
 -developpez.com
-Forum d'imformation liés à l'informatique et aux développements de logiciels.
+Forum d'information liés à l'informatique et aux développements de logiciels.
 https://www.developpez.com/
-
-----------------------------------------------------------------------------------------
 
 -developpez.net
 Forum d'entraide et de tutoriel sur le web.
@@ -134,9 +115,8 @@ https://www.developpez.net/forums/
 	PAGE TUTORIAL
 //------------------------------------------------------------------------------------//
 
-Mes tutoriels
 
-----------------------------------------------------------------------------------------
+Mes tutoriels
 
 PROPRIETER CSS 3D TRANSFORME :
 
@@ -159,15 +139,14 @@ Bon code.
 https://www.w3.org/TR/css-transforms-1/
 https://desandro.com/ 
 
-----------------------------------------------------------------------------------------
+
 
 QU'ES-CE QUE C'EST GULP :
 
 Gulp est ce qu'on appelle un "Javascript task-runner" ou en français "Automatiseur de tâches" ce qui veut dire que ce toolkit est capable d'automatiser des tâches répétitives
 et d'accélérer le développement d'un projet à l'aide de plugins : principalement du coté front-end.
 
-
-Ces taches sont aussi utiles que différente les unes des autres :
+Ses taches sont aussi utiles que différente les unes des autres :
 
 - créer un serveur local.
 - Rechargement automatique le navigateur.
@@ -189,12 +168,11 @@ Une fois Node.js installé, ouvré un terminal de commande (cmd ou powershell) n
 `npm install --global gulp-cli`
 Cette commande aura pour effet d'installer Gulp de manière globale sur votre ordinateur, et une fois pour toutes.
 
-
 Nous allons, maintenant, initialiser gulp dans vos projets. Ouvrez un terminal de commande à la racine de votre projet:
 `npm init`
 
 On vous demandera d'entrer plusieurs informations sur votre projet : nom, version, description, etc..
-Ne vous en faites pas vous pourrez modifier ses informations par la suite (dans le fichier package.json).
+Ne vous en faites pas, vous pourrez modifier ses informations par la suite (dans le fichier package.json).
 
 Il en suit, la partie la plus importante et la plus amusante : le choix des plugins et leur installation.
 Pour ce faire direction https://gulpjs.com/plugins
@@ -209,39 +187,40 @@ Si vous souhaitez ne pas vous prendre la tête pour le moment, je vous proposez 
 Une fois fait, un dossier `node_modules` devrait apparaître dans votre projet. 
 Voilà, il ne reste plus qu'a créer vos automatisations.
 
-
 Pour cela, vous allez devoir créer un fichier à la racine de votre projet: gulpfile.js.
-Il sert à gérer les taches, leurs options, leurs sources et destinations.
+Il sert à gérer les tâches, leurs options, leurs sources et destinations.
 Dans celui-ci, commencez par déclarer toutes les variables dont vous aurez besoin.
+
 ```
 // Requis
 var gulp = require('gulp');
 
 // Include plugins
-var plugins = require('gulp-load-plugins')();  // tous les plugins de package.json
+var plugins = require('gulp-load-plugins')(); // tous les plugins de package.json
 
 // Variables de chemins
-var source = './src';  // dossier de travail
+var source = './src'; // dossier de travail
 var destination = './dist'; // dossier à livrer.
 ```
 
-
 À présent, dans ce même fichier, nous aller créer notre première tache : minifier le css
+
 ```
- gulp.task('minifier', function () { 		// Tâche "minifier" 
-	return gulp.src(source + *.css) 	//copie du fichier à modifier 
-	.pipe(plugins.csso()) 			//application du plugin sur le fichier 
-		// ici plus de plugins Gulp à exécuter 
-	.pipe(gulp.dest(destination)); 		//destitation du fichier modifier});
+gulp.task('minifier', function () { // Tâche "minifier" 
+return gulp.src(source + *.css) //copie du fichier à modifier 
+.pipe(plugins.csso()) //application du plugin sur le fichier 
+// ici plus de plugins Gulp à exécuter 
+.pipe(gulp.dest(destination)); //destitation du fichier modifier});
+
 ```
 
-
-Pour exécuter cette tâche, il vous faudra réouvrir votre terminal dans votre projet:
+Pour exécuter cette tâche, il vous faudra réouvrir votre terminal dans votre projet :
 `gulp minifier`
 
-Par la suite, quand vous commencerez à avoir plusieurs taches vous pourrez les regrouper et ainsi donc créer plusieurs zones de devellopement
+Par la suite, quand vous commencerez à avoir plusieurs taches, vous pourrez les regrouper et ainsi donc créer plusieurs zones de devellopement.
 
-Par exemple:
+Par exemple :
+
 ```
 // Tâche "build"
 gulp.task('build', ['tache']);
@@ -265,22 +244,22 @@ Bon code.
 	PAGE ADMIN
 //------------------------------------------------------------------------------------//
 
--Espace Formulaires;
+-Espace Formulaires.
 -Espace galeries.
--Espace favoris.
+-Espace favori.
 
 //------------------------------------------------------------------------------------//
 	PAGE ADMIN FORMS
 //------------------------------------------------------------------------------------//
 
-Espace Formulaires:
+Espace Formulaires :
 
 -date
 -titre
 -texte
 -nom
--prenom
--email
+-prénom
+-e-mail
 
 //------------------------------------------------------------------------------------//
 	PAGE ADMIN GALLLERIES
@@ -289,7 +268,7 @@ Espace Formulaires:
 Espace galeries
 
 -rajouter une image :
-Choisir la categorie - importer
+Choisir la catégorie - importer
 
 ATTENTION
 Vous allez supprimer : name_pics
@@ -297,22 +276,23 @@ oui/non
 
 Inktober
 Affiches
-sites web
+Sites web
 
 //------------------------------------------------------------------------------------//
 	PAGE ADMIN REFERENCES
 //------------------------------------------------------------------------------------//
 
-Espace favoris
+
+Espace favori
 
 -Le titre fr
 -Le texte fr
 -Le titre en
 -Le texte en
-
 -Le lien
 -L'image
 
+-Nouveau
 
 -langage
 -date
@@ -324,8 +304,8 @@ Espace favoris
 Lire/Mise à jour/Supprimer
 
 ATTENTION
-Si vous supprimer cette article, 
-vous devrez supprimer l'artcile dans l'autre langue
+Si vous supprimez cet article, 
+Vous devrez supprimer l'article dans l'autre langue.
 oui/non
 
 //------------------------------------------------------------------------------------//
@@ -336,13 +316,11 @@ Contacter moi
 
 -Sujet
 -Message
-
 Envoyer
-
 
 +verify_contact.php
 
--Receptions avis
+-Réceptions avis
 -??HTML??
 
 //------------------------------------------------------------------------------------//

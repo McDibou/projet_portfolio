@@ -56,7 +56,7 @@ function afficheContentImg($page_name, $lang, $db)
 // header.php
 function afficheMenu($id, $db)
 {
-    return mysqli_fetch_all(mysqli_query($db, "SELECT * FROM pages WHERE langages_id = $id"));
+    return mysqli_fetch_all(mysqli_query($db, "SELECT link_pages, title_pages FROM pages WHERE langages_id = $id"));
 }
 
 // CRUD_gallery.php & CRUD_reference.php
@@ -90,9 +90,9 @@ function selectForms($id, $db)
 }
 
 // admin_gallery.php
-function selectImg($name, $lang, $db)
+function selectImg( $lang, $db)
 {
-    return mysqli_query($db, "SELECT * FROM pics JOIN pics_has_contents ON id_pics = pics_id JOIN contents ON contents_id = id_contents AND link_contents = '$name' AND langages_id = $lang");
+    return mysqli_query($db, "SELECT * FROM pics JOIN pics_has_contents ON id_pics = pics_id JOIN contents ON contents_id = id_contents AND langages_id = $lang");
 }
 
 // CRUD_reference.php

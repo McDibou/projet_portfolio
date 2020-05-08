@@ -1,0 +1,332 @@
+//------------------------------------------------------------------------------------//
+	PAGE HEADER
+//------------------------------------------------------------------------------------//
+
+Menu
+
+-Home
+-Gallery
+-Favorites
+-Tutorials
+-Contact me
+-Who am I? 
+
+-Admin
+-Disconnect
+
+-fr
+-en
+
+//------------------------------------------------------------------------------------//
+	PAGE ENREGISTREMENT
+//------------------------------------------------------------------------------------//
+
+Registration & Login
+
+-Name
+-First name
+-Email address
+-Pseudo
+-Password
+-Confirm password
+
+-Pseudo
+-Password
+
++verify_connect.php
+
+-This e-mail is already in use, please enter another one.
+-This nickname is already in use, please enter a another one.
+-Passwords are not identical.
+
+-Thanks for your registration, a confirmation email will be sent to you.
+
+-Registration validation / Portfolio
+-??TEXT??
+
+-Valid username or password.
+
+//------------------------------------------------------------------------------------//
+	PAGE HOME
+//------------------------------------------------------------------------------------//
+
+-Favoris
+-Gallery
+-Tutorials
+
+go
+
+//------------------------------------------------------------------------------------//
+	PAGE GALLERIE
+//------------------------------------------------------------------------------------//
+
+My gallery
+
+"Drawing is not the form, it's the way to see the form. "prov. E. Degas
+
+-Inktober
+Inktober is a challenge that takes place during the month of October, it is to make one drawing per day following a different list every year.
+
+-Posters
+Some evening poster production for the dj group "Le Fieu Soundsystem".
+
+-Web site
+Here are the websites created during the training at the 2 miles training center.
+
+//------------------------------------------------------------------------------------//
+	PAGE REFERENCE
+//------------------------------------------------------------------------------------//
+
+My favorites
+
+Welcome, here are my sources of inspiration for learning to web development.
+
+-openclassroom
+Online training that contains tutorials or any member of the site can be an author.
+https://openclassrooms.com/
+
+-W3schools
+Online learning of Web languages.
+https://www.w3schools.com/
+
+-php.net
+Official wiki of the php language.
+https://www.php.net/
+
+-csstricks
+Forum where ideas and work on front-end development.
+https://css-tricks.com/
+
+-stackoverflow
+Forum focused on web development.
+https://stackoverflow.com/
+
+-developpez.com
+Information forum on computer science and software development.
+https://www.developpez.com/
+
+-developpez.net
+Help and tutorial forum on the web.
+https://www.developpez.net/forums/
+
+
+//------------------------------------------------------------------------------------//
+	PAGE TUTORIAL
+//------------------------------------------------------------------------------------//
+
+My tutorials
+
+PROPRIETER CSS 3D TRANSFORMS :
+
+I present you David DeSandro's work on 3D volume with CSS. 
+
+3D exists since a long time in the web with canvas, Three.js (WebGL) or Flash.
+Since 2009, developers have 3D CSS transformation module.
+This is a revival for front-ends who until then were learning a third language to give some volume to their site.
+
+This tutorial, proposes you the construction of a 3D volume, step by step.
+The beginning is a simple perspective to an interactive 3D carousel.
+
+Here is the link of the tutorial.  Once mastered, it will give you a new perspective for your site.
+
+https://3dtransforms.desandro.com/
+
+Good code.
+
+https://www.w3.org/TR/css-transforms-1/
+https://desandro.com/ 
+
+
+
+WHAT'S GULP:
+
+Gulp is a "Javascript task-runner", this toolkit automates repetitive tasks.
+and speed up project development with plugins: front-end.
+
+Its tasks are different from each other :
+
+- creating a local server.
+- Automatic reload of the browser.
+- Image optimization and compression.
+- Minimizing and optimizing CSS or JavaScript.
+- Creating or deleting folders or files.
+- Etc ...
+
+There are 4000 plugins at the moment. Which will save you production time.
+
+I show you how to implement Gulp in your projects and an example.
+
+Here we go:
+
+You'll need to install Node.js.
+It's a Javascript environment that has plugins named "npm". We will need it to set up our Gulp environment.
+
+Node.js installed. Open a command terminal (cmd or powershell) anywhere:
+`npm install --global gulp-cli`
+
+This command installs Gulp globally on your computer.
+
+We'll initialize gulp in your plans. Open a command terminal at the root of your project:
+`npm init
+
+Here enter information about your project: name, version, description, etc...
+Don't worry, you will be able to modify this information later (in the package.json).
+
+Then make the choice of plugins and their installation.
+Here : https://gulpjs.com/plugins
+
+Afterwards, install all the plugins via your terminal with :
+`npm install --save-dev`
+One by one.
+
+Otherwise, install the main Gulp modules:
+`npm install gulp --save-dev`
+
+A `node_modules` folder appears in your project. 
+That's it, let's go for automation.
+
+You will create a file at the root of your project: gulpfile.js.
+It is used to manage tasks, their options, sources and destinations.
+In it, start by declaring all the variables you will need.
+
+```
+// Required
+var gulp = require('gulp');
+
+// Include plugins
+var plugins = require('gulp-load-plugins')(); // all the plugins in package.json
+
+// Path variables
+var source = './src'; // working folder
+var destination = './dist'; // folder to be delivered.
+```
+
+Now we'll go and create our first task: to minimize the css
+
+```
+gulp.task('minifier', function() { // Task "minifier"
+return gulp.src(source + *.css) //copy of the file to be modified
+.pipe(plugins.csso()) //applying the plugin to the file
+// here no more Gulp plugins to run
+.pipe(gulp.dest(destination)); //designation of the file modify});
+
+```
+
+To execute this task, open your terminal in your project :
+`gulp minifier`
+When you have a lot of stains, you can create a lot of areas of development.
+
+
+
+For example:
+
+```
+// Task "build"
+gulp.task('build', ['task']);
+
+// Task "prod" = Build + minify
+gulp.task('prod', ['build', 'minifier']);
+```
+I hope you enjoyed this introduction to Gulp.  And that your curiosity is satisfied.
+The use of this tool will improve and optimize your way of working.
+
+
+Good code.
+
+//------------------------------------------------------------------------------------//
+	PAGE CV
+//------------------------------------------------------------------------------------//
+
+
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN
+//------------------------------------------------------------------------------------//
+
+-Forms space.
+-Gallery space.
+-Favorite space.
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN FORMS
+//------------------------------------------------------------------------------------//
+
+Forms Area :
+
+-date
+-title
+-text
+-name
+-first name
+-e-mail
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN GALLLERIES
+//------------------------------------------------------------------------------------//
+
+Gallery space
+
+-add an image:
+Choose category - import
+
+ATTENTION
+You will delete: name_pics
+yes/no
+
+Inktober
+Posters
+Websites
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN REFERENCES
+//------------------------------------------------------------------------------------//
+
+Favourite space
+
+-The title en
+-The text en
+-The title in
+-The text in
+-The link
+-The image
+
+-create
+
+-language
+-date
+-title
+-text
+-link
+-image
+
+Read/Update/Delete
+
+ATTENTION
+If you delete this article, 
+You will have to delete the article in the other language.
+yes/no
+
+//------------------------------------------------------------------------------------//
+	PAGE CONTACT
+//------------------------------------------------------------------------------------//
+
+Contact me
+
+-Subject
+-Message
+Send
+
++verify_contact.php
+
+-Receiving your opinion
+-??HTML??
+
+//------------------------------------------------------------------------------------//
+	PAGE 404
+//------------------------------------------------------------------------------------//
+
+
+Page not found.
+
+The page you requested does not exist.
+Back - Home

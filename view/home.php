@@ -1,6 +1,7 @@
 <?php
 $page = affichePage('home', $lang, $db);
 $content = afficheContent('home', $lang, $db);
+
 ?>
 <title><?= $page['title_pages'] ?></title>
 
@@ -12,7 +13,7 @@ $content = afficheContent('home', $lang, $db);
     <div>
         <h1><?= $item['title_contents'] ?></h1>
         <a href="?p=<?= $item['link_contents'] ?>">
-            <button><?= $item['name_link_contents'] ?></button>
+            <button>GO</button>
         </a>
     </div>
 

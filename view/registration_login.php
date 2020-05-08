@@ -3,7 +3,8 @@
 $page = affichePage('registration_login', $lang, $db);
 $content = afficheContentTab('registration_login', $lang, $db);
 
-require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'management' . DIRECTORY_SEPARATOR . 'verify_connect.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'verify_connect.php';
+
 ?>
 
 <title><?= $page['title_pages'] ?></title>
@@ -31,10 +32,10 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATO
     </label>
     <label for="password">
         <input type="password" name="password_1" placeholder="<?= $content[4] ?>" maxlength="20" required>
-        <input type="password" name="password_2" placeholder="<?= $content[4] ?>" maxlength="20" required>
+        <input type="password" name="password_2" placeholder="<?= $content[5] ?>" maxlength="20" required>
         <?= (!empty($error_mdp)) ? $error_mdp : null; ?>
     </label>
-    <input type="submit" name="new" value="<?= $content[5] ?>">
+    <input type="submit" name="new" value="<?= $content[6] ?>">
     <?= (!empty($validation)) ? $validation : null; ?>
 </form>
 
@@ -46,7 +47,7 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATO
     <label for="password">
         <input type="password" name="password" placeholder="<?= $content[4] ?>" required>
     </label>
-    <input type="submit" name="connect" value="<?= $content[6] ?>">
+    <input type="submit" name="connect" value="<?= $content[7] ?>">
     <?= (!empty($error_connect)) ? $error_connect : null; ?>
 </form>
 

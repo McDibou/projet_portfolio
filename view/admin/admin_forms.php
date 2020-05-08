@@ -1,8 +1,9 @@
 <?php
 $page = affichePage('admin_forms', $lang, $db);
+$content = afficheContentTab('admin_forms', $lang, $db);
 $content_mail = selectMail($db);
 
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'management' . DIRECTORY_SEPARATOR . 'CRUD_forms.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'CRUD_forms.php';
 
 ?>
 
@@ -14,12 +15,12 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY
 <table>
     <thead>
     <tr>
-        <th>date</th>
-        <th>title</th>
-        <th>text</th>
-        <th>name</th>
-        <th>username</th>
-        <th>mail</th>
+        <th><?= $content[0] ?></th>
+        <th><?= $content[1] ?></th>
+        <th><?= $content[2] ?></th>
+        <th><?= $content[3] ?></th>
+        <th><?= $content[4] ?></th>
+        <th><?= $content[5] ?></th>
 
     </tr>
     </thead>
