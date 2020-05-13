@@ -261,6 +261,14 @@ Espace Formulaires :
 -prénom
 -e-mail
 
+Answer
+Send me
+Delete
+
+ATTENTION
+Vous allez supprimer le mail de
+oui/non
+
 //------------------------------------------------------------------------------------//
 	PAGE ADMIN GALLLERIES
 //------------------------------------------------------------------------------------//
@@ -274,9 +282,6 @@ ATTENTION
 Vous allez supprimer : name_pics
 oui/non
 
-Inktober
-Affiches
-Sites web
 
 //------------------------------------------------------------------------------------//
 	PAGE ADMIN REFERENCES

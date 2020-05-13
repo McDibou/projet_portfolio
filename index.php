@@ -1,11 +1,13 @@
 <?php
 session_start();
-
+//dependance general
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'config.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'requete_sql.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'requete_mysql.php';
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'model' .DIRECTORY_SEPARATOR. 'request_global.php';
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'interface' . DIRECTORY_SEPARATOR . 'header.php';
 
+//si utilisateur n'est pas connecter sinon acces au site && si admin acces espace admin
 if (empty($_SESSION['pseudo'])) {
 
     include __DIR__ . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'registration_login.php';

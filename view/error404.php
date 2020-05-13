@@ -1,13 +1,25 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1>ERROR 404</h1>
-</body>
-</html>
+<?php
+
+// récupération du contenus à partir de la base de donnnée.
+$page = affichePage('error404', $lang, $db);
+$content = afficheContentTab('error404', $lang, $db);
+
+?>
+
+<title><?= $page['title_pages'] ?></title>
+
+<div>
+    <h1><?= $page['title_pages'] ?></h1>
+
+    <div>
+        <p><?= $content[0] ?></p>
+
+        <div>
+            <a onclick="history.go(-1)"><?= $content[1] ?></a>
+
+            <p>-</p>
+
+            <a href="./"><?= $content[2] ?></a>
+        </div>
+    </div>
+</div>

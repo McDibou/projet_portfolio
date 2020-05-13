@@ -260,6 +260,14 @@ Forms Area :
 -first name
 -e-mail
 
+repondre
+Me l'envoyer
+Supprimer
+
+ATTENTION
+Delete email :
+yes/no
+
 //------------------------------------------------------------------------------------//
 	PAGE ADMIN GALLLERIES
 //------------------------------------------------------------------------------------//
@@ -273,9 +281,6 @@ ATTENTION
 You will delete: name_pics
 yes/no
 
-Inktober
-Posters
-Websites
 
 //------------------------------------------------------------------------------------//
 	PAGE ADMIN REFERENCES

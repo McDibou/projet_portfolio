@@ -1,4 +1,6 @@
 <?php
+
+// récupération du contenus à partir de la base de donnnée.
 $page = affichePage('tutorial', $lang, $db);
 $content = afficheContent('tutorial', $lang, $db);
 
@@ -6,15 +8,16 @@ $content = afficheContent('tutorial', $lang, $db);
 
 <title><?= $page['title_pages'] ?></title>
 
-<h1><?= $page['title_pages'] ?></h1>
+<div>
+    <h1><?= $page['title_pages'] ?></h1>
 
-<?php while ($item = mysqli_fetch_assoc($content)) { ?>
+    <!--Boucle affichage tutoriel-->
+    <?php while ($item = mysqli_fetch_assoc($content)) { ?>
 
-    <div>
-        <h3><?= $item['title_contents'] ?></h3>
-        <p><?= $item['text_contents'] ?></p>
-    </div>
+        <div>
+            <h3><?= $item['title_contents'] ?></h3>
+            <?php include("view/article/".$item['text_contents']) ?>
+        </div>
 
-<?php } ?>
-
-
+    <?php } ?>
+</div>

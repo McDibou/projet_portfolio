@@ -1,29 +1,26 @@
 <?php
 
+// récupération du contenus à partir de la base de donnnée.
 $page = affichePage('admin', $lang, $db);
-
-$content1 = affichePage('admin_forms', $lang, $db);
-$content2 = affichePage('admin_gallery', $lang, $db);
-$content3 = affichePage('admin_reference', $lang, $db);
+$sousPage = afficheSousPage('admin', $lang, $db);
 
 ?>
 
 <title><?= $page['title_pages'] ?></title>
 
-<h1><?= $page['title_pages'] ?></h1>
+<div>
+    <h1><?= $page['title_pages'] ?></h1>
 
+    <div>
+        <!--Boucle affichage sous pages admin-->
+        <?php while ($item = mysqli_fetch_assoc($sousPage)) { ?>
 
+            <a href="?p=<?= $item['link_pages'] ?>">
 
-    <a href="?p=<?= $content1['link_pages'] ?>">
-        <h1><?= $content1['title_pages'] ?></h1>
-    </a>
-
-    <a href="?p=<?= $content2['link_pages'] ?>">
-        <h1><?= $content2['title_pages'] ?></h1>
-    </a>
-
-    <a href="?p=<?= $content3['link_pages'] ?>">
-        <h1><?= $content3['title_pages'] ?></h1>
-    </a>
-
-
+                <button>
+                    <h1><?= $item['title_pages'] ?></h1>
+                </button>
+            </a>
+        <?php } ?>
+    </div>
+</div>
