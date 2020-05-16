@@ -7,30 +7,25 @@ $content = afficheContentImg('reference', $lang, $db);
 ?>
 
 <title><?= $page['title_pages'] ?></title>
+<body class="fond-reference">
+<div class="page page-reference">
 
-<div>
+    <h1><?= $page['title_pages'] ?></h1>
+    <p><?= $page['text_pages'] ?></p>
 
-    <div>
-        <h1><?= $page['title_pages'] ?></h1>
-        <p><?= $page['text_pages'] ?></p>
-    </div>
-
-    <div>
-        <!--Boucle affichage favoris-->
-        <?php while ($item = mysqli_fetch_assoc($content)) { ?>
-
+    <!--Boucle affichage favoris-->
+    <?php while ($item = mysqli_fetch_assoc($content)) { ?>
+        <div class="content reference">
             <a href="<?= $item['link_contents'] ?>" target="_blank">
 
-                <button>
-                    <img style="width: 10%" src="view/img/<?= $item['name_pics'] ?>">
+                <img src="view/img/<?= $item['name_pics'] ?>">
 
-                    <div>
-                        <h1><?= $item['title_contents'] ?></h1>
-                        <p><?= $item['text_contents'] ?></p>
-                        <p><?= dateTime($item['date_contents']) ?></p>
-                    </div>
-                </button>
+                <div>
+                    <h2><?= $item['title_contents'] ?></h2>
+                    <p><?= $item['text_contents'] ?></p>
+                </div>
             </a>
-        <?php } ?>
-    </div>
+        </div>
+    <?php } ?>
 </div>
+</body>

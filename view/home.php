@@ -7,27 +7,24 @@ $content = afficheContent('home', $lang, $db);
 ?>
 
 <title><?= $page['title_pages'] ?></title>
-<div>
-    <img style="width: 30%" src="../view/img/logov1.png">
+<div class="page home">
+    <img class="logo" src="../view/img/logov1.png">
 
-    <div>
-        <!--Boucle affichage menu home-->
-        <?php while ($item = mysqli_fetch_assoc($content)) { ?>
+    <!--Boucle affichage menu home-->
+    <?php while ($item = mysqli_fetch_assoc($content)) { ?>
 
-            <div>
-                <img style="width: 10%" src="view/img/<?= $item['text_contents'] ?>">
+        <div class="content home">
+            <a href="?p=<?= $item['link_contents'] ?>">
+                <div class="home-menu">
+                    <img src="view/img/<?= $item['text_contents'] ?>">
 
-                <div>
-                    <h1><?= $item['title_contents'] ?></h1>
-
-                    <a href="?p=<?= $item['link_contents'] ?>">
-
-                        <button>
-                            GO
-                        </button>
-                    </a>
+                    <div>
+                        <h2><?= $item['title_contents'] ?></h2>
+                        <p>GO</p>
+                    </div>
                 </div>
-            </div>
-        <?php } ?>
-    </div>
+            </a>
+        </div>
+    <?php } ?>
+
 </div>

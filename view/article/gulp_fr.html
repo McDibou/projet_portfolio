@@ -1,4 +1,4 @@
-<div>
+<div class="article">
     <p>Gulp est ce qu'on appelle un "Javascript task-runner" ou en français "Automatiseur de tâches" ce qui veut dire
         que ce
         toolkit est capable d'automatiser des tâches répétitives
@@ -27,9 +27,10 @@
         mettre en place notre environnement Gulp.</p>
 
     <p>Une fois Node.js installé, ouvré un terminal de commande (cmd ou powershell) n'importe où :</p>
-    <div>
-        <pre>`npm install --global gulp-cli`</pre>
-    </div>
+
+    <pre>
+npm install --global gulp-cli</pre>
+
     <p>Cette commande aura pour effet d'installer Gulp de manière globale sur votre ordinateur, et une fois pour
         toutes.</p>
 </div>
@@ -37,9 +38,10 @@
 <div>
     <p>Nous allons, maintenant, initialiser gulp dans vos projets. Ouvrez un terminal de commande à la racine de votre
         projet:</p>
-    <div>
-        <pre>`npm init`</pre>
-    </div>
+
+    <pre>
+npm init</pre>
+
 
     <p>On vous demandera d'entrer plusieurs informations sur votre projet : nom, version, description, etc..
         Ne vous en faites pas, vous pourrez modifier ses informations par la suite (dans le fichier package.json).</p>
@@ -47,20 +49,22 @@
 
 <div>
     <p>Il en suit, la partie la plus importante et la plus amusante : le choix des plugins et leur installation.
-        Pour ce faire direction <a href="https://gulpjs.com/plugins">https://gulpjs.com/plugins</a></p>
+        Pour ce faire direction <a href="https://gulpjs.com/plugins" target="_blank">https://gulpjs.com/plugins</a></p>
 
     <p>Une fois votre choix fait, il faudra installer l'ensemble des plugins via votre terminal :</p>
-    <div>
-        <pre>`npm install --save-dev`</pre>
-    </div>
+
+    <pre>
+npm install --save-dev</pre>
+
     <p>Ils devront être entrés un à un.</p>
 
     <p>Si vous souhaitez ne pas vous prendre la tête pour le moment, je vous proposez d'installer les modules principaux
         de
         Gulp :</p>
-    <div>
-        <pre>`npm install gulp --save-dev`</pre>
-    </div>
+
+    <pre>
+npm install gulp --save-dev</pre>
+
 
     <p>Une fois fait, un dossier `node_modules` devrait apparaître dans votre projet.
         Voilà, il ne reste plus qu'a créer vos automatisations.</p>
@@ -71,48 +75,46 @@
         Il sert à gérer les tâches, leurs options, leurs sources et destinations.
         Dans celui-ci, commencez par déclarer toutes les variables dont vous aurez besoin.</p>
 
-    <div>
-        <pre>
-            // Requis
-            var gulp = require('gulp');
+    <pre>
+<i>// Requis</i>
+var gulp = require('gulp');
 
-            // Include plugins
-            var plugins = require('gulp-load-plugins')(); // tous les plugins de package.json
+<i>// Include plugins</i>
+var plugins = require('gulp-load-plugins')();
+        <i>// tous les plugins de package.json</i>
 
-            // Variables de chemins
-            var source = './src'; // dossier de travail
-            var destination = './dist'; // dossier à livrer.</pre>
-    </div>
+<i>// Variables de chemins</i>
+var source = './src'; <i>// dossier de travail</i>
+var destination = './dist'; <i>// dossier à livrer.</i></pre>
 
     <p>À présent, dans ce même fichier, nous aller créer notre première tache : minifier le css</p>
 
-    <div>
-        <pre>
-            gulp.task('minifier', function () {     // Tâche "minifier"
-            return gulp.src(source + *.css)         //copie du fichier à modifier
-            .pipe(plugins.csso())                   //application du plugin sur le fichier
-                                                    // ici plus de plugins Gulp à exécuter
-            .pipe(gulp.dest(destination));          //destitation du fichier modifier});</pre>
-    </div>
+    <pre>
+gulp.task('minifier', function() {          <i>// Task "minifier"</i>
+    return gulp.src(source + *.css)     <i>// Copy of the file to be modified</i>
+    .pipe(plugins.csso())                     <i>// Applying the plugin to the file</i>
+                                                         <i>// Here no more Gulp plugins to run</i>
+    .pipe(gulp.dest(destination));       <i>// Designation of the file modify</i>
+});</pre>
 
     <p>Pour exécuter cette tâche, il vous faudra réouvrir votre terminal dans votre projet :</p>
-    <div>
-        <pre>`gulp minifier`</pre>
-    </div>
+
+    <pre>
+gulp minifier</pre>
+
 
     <p>Par la suite, quand vous commencerez à avoir plusieurs taches, vous pourrez les regrouper et ainsi donc créer
         plusieurs zones de devellopement.</p>
 
     <p>Par exemple :</p>
 
-    <div>
-        <pre>
-            // Tâche "build"
-            gulp.task('build', ['tache']);
+    <pre>
+<i>// Tâche "build"</i>
+gulp.task('build', ['tache']);
 
-            // Tâche "prod" = Build + minifier
-            gulp.task('prod', ['build', 'minifier']);</pre>
-    </div>
+<i>// Tâche "prod" = Build + minifier</i>
+gulp.task('prod', ['build', 'minifier']);</pre>
+
 </div>
 
 <div>

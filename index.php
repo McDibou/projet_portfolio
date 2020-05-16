@@ -3,7 +3,7 @@ session_start();
 //dependance general
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'config.php';
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'model' .DIRECTORY_SEPARATOR. 'request_global.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'request_global.php';
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'interface' . DIRECTORY_SEPARATOR . 'header.php';
 
@@ -83,8 +83,5 @@ if (empty($_SESSION['pseudo'])) {
     }
 }
 
-
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'interface' . DIRECTORY_SEPARATOR . 'footer.php';
-
-
 

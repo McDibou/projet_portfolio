@@ -21,19 +21,21 @@ $content = afficheContentTab('menu', $lang, $db);
             <!--Switch langages-->
             <div class="menu-burger">
                 <?php if (!empty($_SESSION['pseudo'])) { ?>
-                    <img src="view/img/burger.png" alt="">
 
-                    <div class="menu-hidden">
-                        <a href="./"><?= $content[0] ?></a>
-                        <a href="?p=<?= $menu[1][0] ?>"><?= $content[1] ?></a>
+                    <button onclick="dropdown()"><img src="view/img/burger.png"></button>
+
+                    <div id="menu-hidden">
+                        <a class="menu-top" href="./"><?= $content[0] ?></a>
                         <a href="?p=<?= $menu[2][0] ?>"><?= $content[2] ?></a>
+                        <a href="?p=<?= $menu[1][0] ?>"><?= $content[1] ?></a>
                         <a href="?p=<?= $menu[3][0] ?>"><?= $content[3] ?></a>
                         <a href="?p=<?= $menu[4][0] ?>"><?= $content[4] ?></a>
-                        <a href="?p=<?= $menu[5][0] ?>"><?= $content[5] ?></a>
+                        <a class="menu-bottum" href="?p=<?= $menu[5][0] ?>"><?= $content[5] ?></a>
                         <?php if (!empty($_SESSION['role'])) { ?>
-                            <a href="?p=<?= $menu[6][0] ?>"><?= $content[6] ?></a>
+                            <a class="menu-admin" href="?p=<?= $menu[6][0] ?>"><?= $content[6] ?></a>
                         <?php } ?>
                     </div>
+
                 <?php } ?>
             </div>
 
@@ -49,7 +51,7 @@ $content = afficheContentTab('menu', $lang, $db);
 
         <div class="menu menu-right">
             <!--affichage Pseudo-->
-            <p><?= (!empty($_SESSION['pseudo'])) ? $_SESSION['pseudo'] : null; ?></p>
+            <div class="pseudo"><?= (!empty($_SESSION['pseudo'])) ? $_SESSION['pseudo'] : null; ?></div>
 
             <!--button déconnexion-->
             <?php if (!empty($_SESSION['pseudo'])) { ?>
@@ -64,13 +66,15 @@ $content = afficheContentTab('menu', $lang, $db);
 <div>
     <!--affiche confirmation déconnexion-->
     <?php if (isset($_POST['logout'])) { ?>
-        <form method="post">
-            <p><?= $content[9] ?></p>
+        <div class="trame">
+            <form method="post" class="popup">
+                <h1><?= $content[9] ?></h1>
 
-            <div>
-                <button type="submit" name="disconnect"><?= $content[10] ?></button>
-                <button type="submit" name="non"><?= $content[11] ?></button>
-            </div>
-        </form>
+                <div class="popup-button">
+                    <button class="invalid-text" type="submit" name="disconnect"><?= $content[10] ?></button>
+                    <button class="valid-text" type="submit" name="non"><?= $content[11] ?></button>
+                </div>
+            </form>
+        </div>
     <?php } ?>
 </div>

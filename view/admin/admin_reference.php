@@ -12,57 +12,57 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 
 <title><?= $page['title_pages'] ?></title>
 
-<div>
+<div class="page admin-reference">
 
     <h1><?= $page['title_pages'] ?></h1>
 
-    <div>
-        <!--formulaire insertion reference-->
-        <form action="" method="post" enctype="multipart/form-data">
+    <!--formulaire insertion reference-->
+    <form method="post" enctype="multipart/form-data" class="content">
 
-            <div>
-                <div>
-                    <?= $content[0] ?>
-                    <input name="title_contents_fr" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80" required>
-                </div>
-
-                <div>
-                    <?= $content[1] ?>
-                    <textarea name="text_contents_fr" cols="20" rows="5" maxlength="200" required></textarea>
-                </div>
+        <div class="reference-input">
+            <div class="reference-input">
+                <p><?= $content[0] ?> :</p>
+                <input name="title_contents_fr" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80" required>
             </div>
 
-            <div>
-                <div>
-                    <?= $content[2] ?>
-                    <input name="title_contents_en" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80" required>
-                </div>
+            <div class="reference-input">
+                <p><?= $content[1] ?> :</p>
+                <textarea name="text_contents_fr" cols="20" rows="5" maxlength="200" required></textarea>
+            </div>
+        </div>
 
-                <div>
-                    <?= $content[3] ?>
-                    <textarea name="text_contents_en" cols="20" rows="5" maxlength="200" required></textarea>
-                </div>
+        <div>
+            <div class="reference-input">
+                <p><?= $content[2] ?> :</p>
+                <input name="title_contents_en" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80" required>
             </div>
 
-            <div>
-                <div>
-                    <?= $content[4] ?>
-                    <input name="link_contents" type="url" placeholder="https://example.com" required>
-                </div>
+            <div class="reference-input">
+                <p><?= $content[3] ?> :</p>
+                <textarea name="text_contents_en" cols="20" rows="5" maxlength="200" required></textarea>
+            </div>
+        </div>
 
-                <div>
-                    <?= $content[5] ?>
-                    <input name="name_pics" type="file" accept="image/*" required>
-                </div>
+        <div>
+            <div class="reference-input">
+                <p><?= $content[4] ?> :</p>
+                <input name="link_contents" type="url" placeholder="https://example.com" required>
+            </div>
+
+            <div class="reference-input">
+                <p><?= $content[5] ?> :</p>
+                <input name="name_pics" type="file" accept="image/*" required>
+            </div>
+            <div class="reference-input">
                 <button type="submit" name="create"><?= $content[6] ?></button>
             </div>
-        </form>
-    </div>
-    <div>
+        </div>
+    </form>
+
+    <div class="content table">
         <!--tableau CRUD reference-->
         <table>
             <thead>
-
             <tr>
                 <th><?= $content[7] ?></th>
                 <th><?= $content[8] ?></th>
@@ -71,62 +71,52 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
                 <th><?= $content[11] ?></th>
                 <th><?= $content[12] ?></th>
             </tr>
-
             </thead>
+
             <tbody>
             <!--boucle recuperation contenu reference-->
             <?php while ($item = mysqli_fetch_assoc($content_rf)) { ?>
 
-                <tr>
+                <tr class="ligne">
                     <td><?= $item['name_langages'] ?></td>
                     <td><?= dateTime($item['date_contents']) ?></td>
                     <td><?= more($item['title_contents']) ?></td>
                     <td><?= more($item['text_contents']) ?></td>
-                    <td><a href="<?= $item['link_contents'] ?>" target="_blank"><?= more($item['link_contents']) ?></a></td>
+                    <td><a href="<?= $item['link_contents'] ?>" target="_blank"><?= more($item['link_contents']) ?></a>
+                    </td>
 
                     <td>
-                        <div>
+                        <div class="table-button">
                             <?= more($item['name_pics']) ?>
                             <form method="post">
                                 <button type="submit" name="view_update_pics" value="<?= $item['id_pics'] ?>"><img
-                                            style="width: 10%" src="view/img/reload.svg"></button>
+                                            src="view/img/reload.png"></button>
                             </form>
                         </div>
                     </td>
 
                     <td>
-                        <div>
-                            <!--bontons CRUD reference-->
-                            <form method="post">
-                                <button type="submit" name="read" value="<?= $item['id_contents'] ?>"><img
-                                            style="width: 10%"
-                                            src="view/img/readREF.svg">
-                                </button>
+                        <!--bontons CRUD reference-->
+                        <form method="post" class="table-button">
 
-                                <button type="submit" name="view_update"
-                                        value="<?= $item['id_contents'] ?>"><img style="width: 10%"
-                                                                                 src="view/img/reload.svg">
-                                </button>
+                            <button type="submit" name="read" value="<?= $item['id_contents'] ?>"><img
+                                        src="view/img/readREF.png"></button>
 
-                                <button type="submit" name="delete" value="<?= $item['id_contents'] ?>"><img
-                                            style="width: 10%"
-                                            src="view/img/delete.svg">
-                                </button>
+                            <button type="submit" name="view_update" value="<?= $item['id_contents'] ?>"><img
+                                        src="view/img/reload.png"></button>
 
-                                <?php if ($item['active_contents'] === '1') { ?>
-                                    <button type="submit" name="visible"
-                                            value="<?= $item['id_contents'] ?>"><img style="width: 10%"
-                                                                                     src="view/img/validate.svg">
-                                    </button>
+                            <button type="submit" name="delete" value="<?= $item['id_contents'] ?>"><img
+                                        src="view/img/delete.png"></button>
 
-                                <?php } else { ?>
+                            <?php if ($item['active_contents'] === '1') { ?>
+                                <button type="submit" name="visible" value="<?= $item['id_contents'] ?>"><img
+                                            src="view/img/validate.png"></button>
+                            <?php } else { ?>
+                                <button type="submit" name="invisible" value="<?= $item['id_contents'] ?>"><img
+                                            src="view/img/invalidate.png"></button>
+                            <?php } ?>
+                        </form>
 
-                                    <button type="submit" name="invisible" value="<?= $item['id_contents'] ?>"><img
-                                                style="width: 10%" src="view/img/invalidate.svg"></button>
-
-                                <?php } ?>
-                            </form>
-                        </div>
                     </td>
                 </tr>
             <?php } ?>
@@ -135,95 +125,99 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
     </div>
 </div>
 
-<div>
-    <!--affichage reference-->
-    <?php if (isset ($_POST['read'])) { ?>
-        <form method="post">
 
-            <img style="width: 10%" src="view/img/<?= $read['name_pics'] ?>">
+<!--affichage reference-->
+<?php if (isset ($_POST['read'])) { ?>
+    <div class="trame">
+        <form method="post" class="popup">
+
+            <img src="view/img/<?= $read['name_pics'] ?>">
 
             <div>
-                <h3> <?= $read['title_contents'] ?> </h3>
+                <h1> <?= $read['title_contents'] ?> </h1>
                 <p> <?= $read['text_contents'] ?> </p>
                 <a href="<?= $read['link_contents'] ?>" target="_blank"><?= $read['link_contents'] ?></a>
             </div>
 
-            <div>
-                <button type="submit" name="view_update"
+            <div class="popup-button">
+                <button class="valid-text" type="submit" name="view_update"
                         value="<?= $read['id_contents'] ?>"><?= $content[14] ?></button>
+                <div class="reference-button">
+                    <button class="invalid-text" type="submit" name="delete" value="<?= $read['id_contents'] ?>"><?= $content[15] ?></button>
 
-                <button type="submit" name="delete" value="<?= $read['id_contents'] ?>"><?= $content[15] ?></button>
-
-                <button type="submit" name="back"><img style="width: 10%" src="view/img/back.svg"></button>
+                    <button class="back" type="submit" name="back"><img src="view/img/back.png"></button>
+                </div>
             </div>
         </form>
-    <?php } ?>
-</div>
-<div>
-    <!--affichage reference update-->
-    <?php if (isset ($_POST['view_update'])) { ?>
-        <form method="post">
+    </div>
+<?php } ?>
 
-            <div>
-                <?= $content[9] ?>
-                <input name="title_contents" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80"
+<!--affichage reference update-->
+<?php if (isset ($_POST['view_update'])) { ?>
+    <div class="trame">
+        <form method="post" class="popup">
+
+            <div class="reference-input">
+                <p><?= $content[9] ?></p>
+                <input name="title_contents" type="text" pattern="[A-Za-z0-9 '.-]+$" maxlength="80"
                        value="<?= $view_update['title_contents'] ?>">
             </div>
 
-            <div>
-                <?= $content[10] ?>
+            <div class="reference-input">
+                <p><?= $content[10] ?></p>
                 <textarea name="text_contents" cols="20" rows="5"
                           maxlength="200"><?= $view_update['text_contents'] ?></textarea>
             </div>
 
-            <div>
-                <?= $content[11] ?>
+            <div class="reference-input">
+                <p><?= $content[11] ?></p>
                 <input name="link_contents" type="url" value="<?= $view_update['link_contents']; ?>"
                        placeholder="https://example.com">
             </div>
 
-            <div>
-                <button type="submit" name="update"
+            <div class="popup-button reference-button">
+                <button class="valid-text" type="submit" name="update"
                         value="<?= $view_update['id_contents']; ?>"><?= $content[14] ?></button>
 
-                <button type="submit" name="back"><img style="width: 10%" src="view/img/back.svg"></button>
+                <button class="back" type="submit" name="back"><img src="view/img/back.png"></button>
             </div>
         </form>
-    <?php } ?>
-</div>
-<div>
-    <!--affichage image reference update-->
-    <?php if (isset ($_POST['view_update_pics'])) { ?>
-        <form method="post" enctype="multipart/form-data">
+    </div>
+<?php } ?>
 
-            <img style="width: 10%" src="view/img/<?= $view_update_pics['name_pics'] ?>">
-            <div>
-                <?= $content[5] ?>
-                <input name="name_update_pics" type="file" accept="image/*">
-            </div>
+<!--affichage image reference update-->
+<?php if (isset ($_POST['view_update_pics'])) { ?>
+    <div class="trame">
+        <form method="post" enctype="multipart/form-data" class="popup">
 
-            <div>
-                <button type="submit" name="update_pics"
+            <img src="view/img/<?= $view_update_pics['name_pics'] ?>">
+
+            <input name="name_update_pics" type="file" accept="image/*">
+
+            <div class="popup-button reference-button">
+                <button class="valid-text" type="submit" name="update_pics"
                         value="<?= $view_update_pics['id_pics'] ?>"><?= $content[14] ?></button>
 
-                <button type="submit" name="back"><img style="width: 10%" src="view/img/back.svg"></button>
+                <button class="back" type="submit" name="back"><img src="view/img/back.png"></button>
             </div>
         </form>
-    <?php } ?>
-</div>
-<div>
-    <!--affichage confirmation delete reference-->
-    <?php if (isset($_POST['delete'])) { ?>
-        <form method="post" enctype="multipart/form-data">
+    </div>
+<?php } ?>
+
+<!--affichage confirmation delete reference-->
+<?php if (isset($_POST['delete'])) { ?>
+    <div class="trame">
+        <form method="post" enctype="multipart/form-data" class="popup">
 
             <h3><?= $content[16] ?></h3>
             <p><?= $content[17] ?></p>
-            <div>
-                <button type="submit" name="oui" value="<?= $_POST['delete'] ?>"><?= $content[18] ?></button>
+            <div class="popup-button">
+                <button class="invalid-text" type="submit" name="oui" value="<?= $_POST['delete'] ?>"><?= $content[18] ?></button>
 
-                <button type="submit" name="non"><?= $content[19] ?></button>
+                <button class="valid-text" type="submit" name="non"><?= $content[19] ?></button>
             </div>
         </form>
-    <?php } ?>
-</div>
+    </div>
+<?php } ?>
+
 

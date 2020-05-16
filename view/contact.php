@@ -11,23 +11,21 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_S
 
 <title><?= $page['title_pages'] ?></title>
 
-<div>
+<div class="page contact">
     <h1><?= $page['title_pages'] ?></h1>
 
-    <div>
-        <!--Formulaire de contact-->
-        <form action="" method="post">
-            <input value="<?= (!empty($title)) ? $title : null; ?>" name="title_forms" type="text" placeholder="<?= $content[0] ?>" maxlength="30"
-                   pattern="[A-Za-z0-9]+$" required>
+    <?= (!empty($reception)) ? '<div class="valid-text">' . $reception . '</div>' : null; ?>
 
-            <textarea name="text_forms" placeholder="<?= $content[1] ?>" cols="20" rows="5" maxlength="200"
-                      required><?= (!empty($text)) ? $text : null; ?></textarea>
+    <!--Formulaire de contact-->
+    <form method="post" class="content contact">
+        <input value="<?= (!empty($title)) ? $title : null; ?>" name="title_forms" type="text"
+               placeholder="<?= $content[0] ?>" maxlength="30"
+               pattern="[A-Za-z0-9]+$" required>
 
-            <input name="forms" type="submit" value="<?= $content[2] ?>">
+        <textarea name="text_forms" placeholder="<?= $content[1] ?>" cols="20" rows="5" maxlength="255"
+                  required><?= (!empty($text)) ? $text : null; ?></textarea>
 
-            <div>
-                <?= (!empty($reception)) ? $reception : null; ?>
-            </div>
-        </form>
-    </div>
+        <button name="forms" type="submit"><?= $content[2] ?></button>
+
+    </form>
 </div>

@@ -8,18 +8,16 @@ $content = afficheContentTab('error404', $lang, $db);
 
 <title><?= $page['title_pages'] ?></title>
 
-<div>
+<div class="page error">
     <h1><?= $page['title_pages'] ?></h1>
 
-    <div>
+    <div class="content">
         <p><?= $content[0] ?></p>
 
-        <div>
-            <a onclick="history.go(-1)"><?= $content[1] ?></a>
-
-            <p>-</p>
-
+        <p>
+            <a href="#" onclick="history.go(-1)"><?= $content[1] ?></a>
+            -
             <a href="./"><?= $content[2] ?></a>
-        </div>
+        </p>
     </div>
 </div>

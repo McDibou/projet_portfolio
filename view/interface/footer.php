@@ -1,7 +1,7 @@
 <footer>
-    <p><?= $page['date_pages'] ?></p>
-</footer>
 
+</footer>
+<script type="text/javascript" src="js/app.js"></script>
 <!--    _
     .__(^)< COIN !
      \___)

@@ -38,7 +38,7 @@ if (!empty($_GET['log']) && !empty($_GET['key'])) {
 
         } else {
 
-            $validation_key = $content[10];
+            $validation_error = $content[10];
 
         }
     }

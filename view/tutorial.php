@@ -8,16 +8,18 @@ $content = afficheContent('tutorial', $lang, $db);
 
 <title><?= $page['title_pages'] ?></title>
 
-<div>
+<body class="fond-tutorial">
+<div class="page">
     <h1><?= $page['title_pages'] ?></h1>
 
     <!--Boucle affichage tutoriel-->
     <?php while ($item = mysqli_fetch_assoc($content)) { ?>
 
-        <div>
-            <h3><?= $item['title_contents'] ?></h3>
+        <div class="content">
+            <h2><?= $item['title_contents'] ?></h2>
             <?php include("view/article/".$item['text_contents']) ?>
         </div>
 
     <?php } ?>
 </div>
+</body>

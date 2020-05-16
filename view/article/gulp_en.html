@@ -1,4 +1,4 @@
-<div>
+<div class="article">
     <p>Gulp is a "Javascript task-runner", this toolkit automates repetitive tasks.
         and speed up project development with plugins: front-end.</p>
 
@@ -23,35 +23,39 @@
         It's a Javascript environment that has plugins named "npm". We will need it to set up our Gulp environment.</p>
 
     <p>Node.js installed. Open a command terminal (cmd or powershell) anywhere:</p>
-    <div>
-        <pre>`npm install --global gulp-cli`</pre>
-    </div>
+
+    <pre>
+npm install --global gulp-cli</pre>
+
     <p>This command installs Gulp globally on your computer.</p>
 </div>
 
 <div>
     <p>We'll initialize gulp in your plans. Open a command terminal at the root of your project:</p>
-    <div>
-        <pre>`npm init`</pre>
-    </div>
+
+    <pre>
+npm init</pre>
+
     <p>Here enter information about your project: name, version, description, etc...
         Don't worry, you will be able to modify this information later (in the package.json).</p>
 </div>
 
 <div>
     <p>Then make the choice of plugins and their installation.
-        Here : <a href="https://gulpjs.com/plugins">https://gulpjs.com/plugins</a></p>
+        Here : <a href="https://gulpjs.com/plugins" target="_blank">https://gulpjs.com/plugins</a></p>
 
     <p>Afterwards, install all the plugins via your terminal with :</p>
-    <div>
-        <pre>`npm install --save-dev`</pre>
-    </div>
+
+    <pre>
+npm install --save-dev</pre>
+
     <p>One by one.</p>
 
     <p>Otherwise, install the main Gulp modules:</p>
-    <div>
-        <pre>`npm install gulp --save-dev`</pre>
-    </div>
+
+    <pre>
+npm install gulp --save-dev</pre>
+
 
     <p>A `node_modules` folder appears in your project.
         That's it, let's go for automation.</p>
@@ -62,47 +66,48 @@
         It is used to manage tasks, their options, sources and destinations.
         In it, start by declaring all the variables you will need.</p>
 
-    <div>
-        <pre>
-            // Required
-            var gulp = require('gulp');
 
-            // Include plugins
-            var plugins = require('gulp-load-plugins')(); // all the plugins in package.json
+    <pre>
+<i>// Required</i>
+var gulp = require('gulp');
 
-            // Path variables
-            var source = './src'; // working folder
-            var destination = './dist'; // folder to be delivered.</pre>
-    </div>
+<i>// Include plugins</i>
+var plugins = require('gulp-load-plugins')(); <i>// all the plugins in package.json</i>
+
+<i>// Path variables</i>
+var source = './src'; <i>// working folder</i>
+var destination = './dist'; <i>// folder to be delivered.</i></pre>
+
 
     <p>Now we'll go and create our first task: to minimize the css</p>
 
-    <div>
-        <pre>
-            gulp.task('minifier', function() {      // Task "minifier"
-                return gulp.src(source + *.css)     // copy of the file to be modified
-                .pipe(plugins.csso())               // applying the plugin to the file
-                                                    // here no more Gulp plugins to run
-                .pipe(gulp.dest(destination));      // designation of the file modify
-            });</pre>
-    </div>
+
+    <pre>
+gulp.task('minifier', function() {          <i>// Task "minifier"</i>
+    return gulp.src(source + *.css)     <i>// Copy of the file to be modified</i>
+    .pipe(plugins.csso())                     <i>// Applying the plugin to the file</i>
+                                                         <i>// Here no more Gulp plugins to run</i>
+    .pipe(gulp.dest(destination));       <i>// Designation of the file modify</i>
+});</pre>
+
 
     <p>To execute this task, open your terminal in your project :</p>
-    <div>
-        <pre>`gulp minifier`</pre>
-    </div>
+
+        <pre>
+gulp minifier</pre>
+
     <p>When you have a lot of stains, you can create a lot of areas of development.</p>
 
     <p>For example:</p>
 
-    <div>
-        <pre>
-            // Task "build"
-            gulp.task('build', ['task']);
 
-            // Task "prod" = Build + minify
-            gulp.task('prod', ['build', 'minifier']);</pre>
-    </div>
+    <pre>
+<i>// Task "build"</i>
+gulp.task('build', ['task']);
+
+<i>// Task "prod" = Build + minify</i>
+gulp.task('prod', ['build', 'minifier']);</pre>
+
 </div>
 
 <div>

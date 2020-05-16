@@ -8,6 +8,6 @@ $content = afficheContent('resume', $lang, $db);
 
 <title><?= $page['title_pages'] ?></title>
 
-<div>
+<div class="page">
     <h1><?= $page['title_pages'] ?></h1>
 </div>

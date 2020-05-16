@@ -11,105 +11,98 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 
 <title><?= $page['title_pages'] ?></title>
 
-<div>
+
+<div class="page forms">
     <h1><?= $page['title_pages'] ?></h1>
-    <div>
+
+    <div class="content">
         <!--tableau qui regroupe tout les formulaires et le crud-->
-        <table>
-            <thead>
+        <div class="entete-forms">
+            <p><?= $content[0] ?></p>
+            <p class="none"><?= $content[1] ?></p>
+            <p class="none"><?= $content[2] ?></p>
+            <p class="none"><?= $content[3] ?></p>
+            <p class="none"><?= $content[4] ?></p>
+            <p><?= $content[5] ?></p>
+        </div>
 
-            <tr>
-                <th><?= $content[0] ?></th>
-                <th><?= $content[1] ?></th>
-                <th><?= $content[2] ?></th>
-                <th><?= $content[3] ?></th>
-                <th><?= $content[4] ?></th>
-                <th><?= $content[5] ?></th>
-            </tr>
+        <!--boucle données formulaire + CRUD-->
+        <?php while ($item = mysqli_fetch_assoc($content_forms)) { ?>
+            <div class="boucle-forms">
+                <div class="info">
+                    <p><?= dateTime($item['date_forms']) ?></p>
+                    <p class="none"><?= more($item['title_forms']) ?></p>
+                    <p class="none"><?= more($item['text_forms']) ?></p>
+                    <p class="none"><?= more($item['name_users']) ?></p>
+                    <p class="none"><?= more($item['username_users']) ?></p>
+                    <p><?= $item['mail_users'] ?></p>
+                </div>
+                <!--boutons CRUD-->
+                <div class="forms-separate"></div>
 
-            </thead>
+                <form method="post" class="button-crud">
 
-            <tbody>
-            <!--boucle données formulaire + CRUD-->
-            <?php while ($item = mysqli_fetch_assoc($content_forms)) { ?>
-                <tr>
-                    <td><?= dateTime($item['date_forms']) ?></td>
-                    <td><?= more($item['title_forms']) ?></td>
-                    <td><?= more($item['text_forms']) ?></td>
-                    <td><?= more($item['name_users']) ?></td>
-                    <td><?= more($item['username_users']) ?></td>
-                    <td><?= more($item['mail_users']) ?></td>
+                    <a href="mailto :<?= $item['mail_users'] ?>subject=PORFOLIO%20WEB%202020"
+                       target="_blank">
+                        <img src="view/img/answer.png">
+                    </a>
 
-                    <td>
-                        <!--boutons CRUD-->
-                        <div>
-                            <form method="post">
+                    <!--Si admin n'a pas encore lu le formulaire-->
+                    <?php if ($item['active_forms'] === '0') { ?>
+                        <button type="submit" name="read" value="<?= $item['id_forms'] ?>"><img
+                                    src="view/img/notread.png"></button>
+                    <?php } else { ?>
+                        <button type="submit" name="read" value="<?= $item['id_forms'] ?>"><img
+                                    src="view/img/read.png"></button>
+                    <?php } ?>
 
-                                <a href="mailto :<?= $item['mail_users'] ?>subject=PORFOLIO%20WEB%202020"
-                                   target="_blank">
-                                    <button>
-                                            <img style="width: 10%" src="view/img/answer.svg">
-                                    </button>
-                                </a>
+                    <button type="submit" name="delete" value="<?= $item['id_forms'] ?>"><img
+                                src="view/img/delete.png">
+                    </button>
+                </form>
 
-                                <!--Si admin n'a pas encore lu le formulaire-->
-                                <?php if ($item['active_forms'] === '0') { ?>
-                                    <button type="submit" name="read" value="<?= $item['id_forms'] ?>"><img
-                                                style="width: 10%" src="view/img/notread.svg"></button>
-                                <?php } else { ?>
-                                    <button type="submit" name="read" value="<?= $item['id_forms'] ?>"><img
-                                                style="width: 10%" src="view/img/read.svg"></button>
-                                <?php } ?>
-
-                                <button type="submit" name="delete" value="<?= $item['id_forms'] ?>"><img
-                                            style="width: 10%"
-                                            src="view/img/delete.svg">
-                                </button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
+            </div>
+        <?php } ?>
     </div>
 </div>
 
-<div>
-    <!--affichage read formulaires-->
-    <?php if (isset ($_POST['read'])) { ?>
-        <form method="post">
+
+<!--affichage read formulaires-->
+<?php if (isset ($_POST['read'])) { ?>
+    <div class="trame">
+        <form method="post" class="popup">
 
             <h3> <?= $read['title_forms'] ?> </h3>
             <p> <?= $read['text_forms'] ?> </p>
 
-            <div>
-                <a href="mailto :<?= $read['mail_users'] ?>subject=PORFOLIO%20WEB%202020"
+            <div class="popup-button forms-read">
+                <a class="valid-text" href="mailto :<?= $read['mail_users'] ?>subject=PORFOLIO%20WEB%202020"
                    target="_blank"><?= $content[6] ?></a>
 
-                <button type="submit" name="delete" value="<?= $read['id_forms'] ?>"><?= $content[8] ?></button>
-
-                <button type="submit" name="back"><img style="width: 10%" src="view/img/back.svg"></button>
+                <div>
+                    <button class="invalid-text" type="submit" name="delete" value="<?= $read['id_forms'] ?>"><?= $content[8] ?></button>
+                    <button class="back" type="submit" name="back"><img src="view/img/back.png"></button>
+                </div>
             </div>
         </form>
-    <?php } ?>
-</div>
+    </div>
+<?php } ?>
 
-<div>
-    <!--affichage confirmation delete formulaires-->
-    <?php if (isset($_POST['delete'])) { ?>
+<!--affichage confirmation delete formulaires-->
+<?php if (isset($_POST['delete'])) { ?>
+    <div class="trame">
         <?php $user = afficheInfo($_POST['delete'], $db); ?>
 
-        <form method="post">
+        <form method="post" class="popup">
 
             <h3><?= $content[9] ?></h3>
-            <p><?= $content[10] . ' ' . $user['name_users'] . ' ' . $user['username_users'] ?></p>
+            <p><?= $content[10] . ' : ' . $user['mail_users'] ?></p>
 
-            <div>
-                <button type="submit" name="oui" value="<?= $_POST['delete'] ?>"><?= $content[11] ?></button>
+            <div class="popup-button">
 
-                <button type="submit" name="non"><?= $content[12] ?></button>
+                <button class="invalid-text" type="submit" name="oui" value="<?= $_POST['delete'] ?>"><?= $content[11] ?></button>
+                <button class="valid-text"" type="submit" name="non"><?= $content[12] ?></button>
             </div>
         </form>
-    <?php } ?>
-</div>
+    </div>
+<?php } ?>

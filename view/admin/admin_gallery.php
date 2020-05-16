@@ -12,66 +12,65 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 
 <title><?= $page['title_pages'] ?></title>
 
-<div>
+<div class="page admin-gallery">
     <h1><?= $page['title_pages'] ?></h1>
 
-    <div>
-        <!--option et insert img galerie-->
-        <form method="post" enctype="multipart/form-data">
+    <!--option et insert img galerie-->
+    <form method="post" enctype="multipart/form-data" class="content gallery">
 
-            <div>
-                <?= $content[0] ?>
+        <p><?= $content[0] ?></p>
 
-                <select name="gallery" required>
-                    <option>--<?= $content[1] ?>--</option>
-                    <?php while ($item = mysqli_fetch_assoc($option)) { ?>
-                        <option value="<?= $item['title_contents'] ?>"><?= $item['title_contents'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
+        <select name="gallery" required>
+            <option value="">--<?= $content[1] ?>--</option>
+            <?php while ($item = mysqli_fetch_assoc($option)) { ?>
+                <option value="<?= $item['link_contents'] ?>"><?= $item['title_contents'] ?></option>
+            <?php } ?>
+        </select>
 
-            <div>
-                <input name="name_pics" type="file" accept="image/*" required>
+        <input name="name_pics" type="file" accept="image/*" required>
 
-                <button name="import" type="submit"><?= $content[2] ?></button>
-            </div>
-        </form>
-    </div>
+        <button name="import" type="submit"><?= $content[2] ?></button>
+    </form>
 
-    <div>
-        <!--boucle affichage categorie-->
-        <?php while ($item = mysqli_fetch_assoc($category)) { ?>
-            <div>
-                <h3><?= $item['title_contents'] ?></h3>
+    <!--boucle affichage categorie-->
+    <?php while ($item = mysqli_fetch_assoc($category)) { ?>
+        <div class="content">
+            <h2><?= $item['title_contents'] ?></h2>
 
+            <!--boucle affichage categorie galerie-->
+            <?php $img = selectGallery($item['title_contents'], $lang, $db) ?>
+            <div class="gallery-cadre">
                 <!--boucle affichage img galerie-->
-                <?php $img = selectGallery($item['title_contents'], $lang, $db) ?>
-
                 <?php while ($value = mysqli_fetch_assoc($img)) { ?>
-                    <div>
-                        <img style="max-width: 20%" src="view/img/<?= $value['name_pics'] ?>">
-                        <div>
-                            <form method="post" enctype="multipart/form-data">
+                    <div class="gallery-crud">
+                        <img src="view/img/<?= $value['name_pics'] ?>">
 
-                                <?php if ($value['active_pics'] === '1') { ?>
-                                    <button type="submit" name="visible" value="<?= $value['id_pics'] ?>"><img style="width: 10%" src="view/img/validate.svg"></button>
-                                <?php } else { ?>
-                                    <button type="submit" name="invisible" value="<?= $value['id_pics'] ?>"><img style="width: 10%" src="view/img/invalidate.svg"></button>
-                                <?php } ?>
+                        <form method="post" enctype="multipart/form-data" class="gallery-crud-button">
 
-                                <button type="submit" name="delete" value="<?= $value['id_pics'] ?>"><img style="width: 10%" src="view/img/delete.svg"></button>
-                            </form>
-                        </div>
+                            <?php if ($value['active_pics'] === '1') { ?>
+                                <button type="submit" name="visible" value="<?= $value['id_pics'] ?>"><img
+                                            src="view/img/validate.png"></button>
+                            <?php } else { ?>
+                                <button type="submit" name="invisible" value="<?= $value['id_pics'] ?>"><img
+                                            src="view/img/invalidate.png"></button>
+                            <?php } ?>
+
+                            <button type="submit" name="delete" value="<?= $value['id_pics'] ?>"><img
+                                        src="view/img/delete.png"></button>
+                        </form>
+
                     </div>
                 <?php } ?>
             </div>
-        <?php } ?>
-    </div>
+        </div>
+    <?php } ?>
+
 </div>
-<div>
-    <!--affichage confirmation delete image-->
-    <?php if (isset($_POST['delete'])) { ?>
-        <form method="post" enctype="multipart/form-data">
+
+<!--affichage confirmation delete image-->
+<?php if (isset($_POST['delete'])) { ?>
+    <div class="trame">
+        <form method="post" enctype="multipart/form-data" class="popup">
 
             <?php $id = $_POST['delete'];
             $info = select('pics', 'id_pics', $id, $db) ?>
@@ -79,11 +78,11 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
             <h3><?= $content[3] ?></h3>
             <p><?= $content[4] . ' ' . $info['name_pics'] ?></p>
 
-            <div>
-                <button type="submit" name="oui" value="<?= $_POST['delete'] ?>"><?= $content[5] ?></button>
+            <div class="popup-button">
+                <button class="invalid-text" type="submit" name="oui" value="<?= $_POST['delete'] ?>"><?= $content[5] ?></button>
 
-                <button type="submit" name="non"><?= $content[6] ?></button>
+                <button class="valid-text" type="submit" name="non"><?= $content[6] ?></button>
             </div>
         </form>
-    <?php } ?>
-</div>
+    </div>
+<?php } ?>

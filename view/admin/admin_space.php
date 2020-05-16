@@ -8,19 +8,17 @@ $sousPage = afficheSousPage('admin', $lang, $db);
 
 <title><?= $page['title_pages'] ?></title>
 
-<div>
+
+<div class="page admin">
     <h1><?= $page['title_pages'] ?></h1>
 
-    <div>
-        <!--Boucle affichage sous pages admin-->
-        <?php while ($item = mysqli_fetch_assoc($sousPage)) { ?>
+    <!--Boucle affichage sous pages admin-->
+    <?php while ($item = mysqli_fetch_assoc($sousPage)) { ?>
 
+        <div class="content button-admin">
             <a href="?p=<?= $item['link_pages'] ?>">
-
-                <button>
-                    <h1><?= $item['title_pages'] ?></h1>
-                </button>
+                <h2><?= $item['title_pages'] ?></h2>
             </a>
-        <?php } ?>
-    </div>
+        </div>
+    <?php } ?>
 </div>
