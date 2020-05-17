@@ -12,6 +12,7 @@ $sousPage = afficheSousPage('admin', $lang, $db);
 <div class="page admin">
     <h1><?= $page['title_pages'] ?></h1>
 
+    <div class="admin-block">
     <!--Boucle affichage sous pages admin-->
     <?php while ($item = mysqli_fetch_assoc($sousPage)) { ?>
 
@@ -21,4 +22,5 @@ $sousPage = afficheSousPage('admin', $lang, $db);
             </a>
         </div>
     <?php } ?>
+    </div>
 </div>

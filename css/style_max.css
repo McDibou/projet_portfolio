@@ -1,0 +1,35 @@
+#menu-hidden {
+    width: 15%;
+    left: 9%;
+}
+
+.logo {
+    width: 28vw;
+    margin: 0;
+    position: relative;
+    left: -22%;
+}
+
+.page h2 {
+    font-size: 2rem;
+}
+
+.page h1 {
+    font-size: 6rem;
+}
+
+.page {
+    width: 40%;
+}
+
+.content {
+    top: -5%;
+}
+
+.home-page {
+    margin: 8% auto;
+}
+
+.popup {
+    width: 20%;
+}

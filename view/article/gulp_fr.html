@@ -90,11 +90,11 @@ var destination = './dist'; <i>// dossier à livrer.</i></pre>
     <p>À présent, dans ce même fichier, nous aller créer notre première tache : minifier le css</p>
 
     <pre>
-gulp.task('minifier', function() {          <i>// Task "minifier"</i>
-    return gulp.src(source + *.css)     <i>// Copy of the file to be modified</i>
-    .pipe(plugins.csso())                     <i>// Applying the plugin to the file</i>
-                                                         <i>// Here no more Gulp plugins to run</i>
-    .pipe(gulp.dest(destination));       <i>// Designation of the file modify</i>
+gulp.task('minifier', function() {          <i>// Tâche "minifier" </i>
+    return gulp.src(source + *.css)     <i>// Copie du fichier à modifier </i>
+    .pipe(plugins.csso())                     <i>// Application du plugin sur le fichier </i>
+                                                         <i>// Ici plus de plugins Gulp à exécuter </i>
+    .pipe(gulp.dest(destination));       <i>// Destination du fichier modifié</i>
 });</pre>
 
     <p>Pour exécuter cette tâche, il vous faudra réouvrir votre terminal dans votre projet :</p>

@@ -15,7 +15,7 @@ $content = afficheContent('tutorial', $lang, $db);
     <!--Boucle affichage tutoriel-->
     <?php while ($item = mysqli_fetch_assoc($content)) { ?>
 
-        <div class="content">
+        <div class="content tutorial">
             <h2><?= $item['title_contents'] ?></h2>
             <?php include("view/article/".$item['text_contents']) ?>
         </div>

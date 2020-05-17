@@ -11,7 +11,8 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_S
 
 <title><?= $page['title_pages'] ?></title>
 
-<div class="page contact">
+<div class="page">
+    <div class="contact-page">
     <h1><?= $page['title_pages'] ?></h1>
 
     <?= (!empty($reception)) ? '<div class="valid-text">' . $reception . '</div>' : null; ?>
@@ -20,7 +21,7 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_S
     <form method="post" class="content contact">
         <input value="<?= (!empty($title)) ? $title : null; ?>" name="title_forms" type="text"
                placeholder="<?= $content[0] ?>" maxlength="30"
-               pattern="[A-Za-z0-9]+$" required>
+               pattern="[A-Za-z0-9 '-]+$" required>
 
         <textarea name="text_forms" placeholder="<?= $content[1] ?>" cols="20" rows="5" maxlength="255"
                   required><?= (!empty($text)) ? $text : null; ?></textarea>
@@ -28,4 +29,5 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_S
         <button name="forms" type="submit"><?= $content[2] ?></button>
 
     </form>
+</div>
 </div>

@@ -38,28 +38,27 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_S
     <!--formulaire d'inscription-->
     <form method="post" class="login-form">
         <input value="<?= (!empty($name_users)) ? $name_users : null; ?>" type="text" name="name_users"
-               placeholder="<?= $content[0] ?>" pattern="[A-Za-z '-]+$" maxlength="80" required disabled>
+               placeholder="<?= $content[0] ?>" pattern="[A-Za-z '-]+$" maxlength="80" required>
 
         <input value="<?= (!empty($username_users)) ? $username_users : null; ?>" type="text" name="username_users"
-               placeholder="<?= $content[1] ?>" pattern="[A-Za-z '-]+$" maxlength="80" required disabled>
+               placeholder="<?= $content[1] ?>" pattern="[A-Za-z '-]+$" maxlength="80" required>
 
         <input value="<?= (!empty($mail_users)) ? $mail_users : null; ?>" type="email" name="mail_users"
-               placeholder="<?= $content[2] ?>" pattern="[A-Za-z0-9]+@{1}[A-Za-z]+.{1}[A-Za-z]{2,}+$" maxlength="255"
-               required disabled>
+               placeholder="<?= $content[2] ?>" pattern="[A-Za-z0-9.-_]+@[A-za-z]+\.[a-z]{2,}" maxlength="255" required>
 
         <?= (!empty($error_mail)) ? '<div class="invalid-text">' . $error_mail . '</div>' : null; ?>
 
         <input value="<?= (!empty($pseudo_users)) ? $pseudo_users : null; ?>" type="text" name="pseudo_users"
-               placeholder="<?= $content[3] ?>" pattern="[A-Za-z0-9]+$" maxlength="60" required disabled>
+               placeholder="<?= $content[3] ?>" pattern="[A-Za-z0-9]+$" maxlength="60" required>
 
         <?= (!empty($error_psd)) ? '<div class="invalid-text">' . $error_psd . ' </div>' : null; ?>
 
-        <input type="password" name="password_1" placeholder="<?= $content[4] ?>" maxlength="20" required disabled>
-        <input type="password" name="password_2" placeholder="<?= $content[5] ?>" maxlength="20" required disabled>
+        <input type="password" name="password_1" placeholder="<?= $content[4] ?>" maxlength="20" required>
+        <input type="password" name="password_2" placeholder="<?= $content[5] ?>" maxlength="20" required>
 
         <?= (!empty($error_mdp)) ? '<div class="invalid-text">' . $error_mdp . '</div>' : null; ?>
 
-        <button type="submit" name="new" disabled><?= $content[6] ?></button>
+        <button type="submit" name="new"><?= $content[6] ?></button>
 
     </form>
 </div>

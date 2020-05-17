@@ -23,42 +23,44 @@ if (isset($_POST['forms'])) {
         $to = $user['mail_users'];
         $subject = $controller[0];
         $message = '
-<html>
-<head>
-    <title> '.$controller[0].' </title>
-</head>
+<html lang="fr">
 <body>
-<div>
-    <img style="width: 20%" src="view/img/logov1.png" alt="logo portfolio">
-</div>
-<div>
+<div style=" width: 600px; padding: 3%; background-color: #ebebeb;">
     <div>
-        <p>'.$controller[2].' '.$user['pseudo_users'].'</p>
-        <p>'.$controller[3].'</p>
-        <p>'.$controller[4].'</p>
+        <img style="width: 400px; margin: 2%" src="view/img/logov1.png" alt="logo portfolio">
     </div>
-    <div>
-        <p>'.$controller[5].'</p>
-        <p>De Laet A.</p>
+    <div style="margin: 5%; padding: 2%; background-color: #fefefe; border-radius: 0.5rem">
+        <p>' . $controller[2] . ' <em>' . $user['pseudo_users'] . '</em></p>
+        <div style="padding: 1%"></div>
+        <div style="margin-left: 4%">
+            <p>' . $controller[3] . '</p>
+            <p>' . $controller[4] . '</p>
+            <div style="padding: 2%"></div>
+            <div style="margin-left: 4%">
+                <p>' . $controller[5] . '</p>
+                <p>De Laet A.</p>
+            </div>
+        </div>
+        <hr>
     </div>
-    <hr>
-    <div>
-        <p>'.$controller[6].'</p>
-        <a href="http://adrien.webdev-cf2m.be/projet_portfolio/" target="_blank">portfolio.com</a>
+
+    <div style="margin: 1%; text-align: center">
+        <p>' . $controller[6] . ' ' . '<a href="http://adrien.webdev-cf2m.be/projet_portfolio/"
+                                target="_blank">portfolio.com</a></p>
     </div>
 </div>
 </body>
 </html>
         ';
 
-        $header = 'MIME-Version: 1.0\r\n';
-        $header .= 'Content-type: text/html; charset=UTF-8\r\n';
-        $header .= 'From: ROBOT.CONTACT <robot.portfolio@gmail.com>\r\n';
-        $header .= 'X-Mailer: PHP/' . phpversion() . '\r\n';
+        $header[] = 'MIME-Version: 1.0';
+        $header[] = 'Content-type: text/html; charset="UTF-8"';
+        $header[] = 'From: ROBOT.CONTACT <robot.portfolio@gmail.com>';
+        $header[] = 'X-Mailer: PHP/' . phpversion();
 
-        mail($to, $subject, $message, $header);
+        mail($to, $subject, $message, implode('\r\n',$header));
 
-        $reception = $controller[1];
+        $reception = $controller[1] . ' ' . $controller[3];
 
     }
 

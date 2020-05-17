@@ -19,17 +19,32 @@ if (isset($_POST['new'])) {
     $value = select('users', 'mail_users', $_POST['mail_users'], $db);
     $compare_mail = $value['mail_users'];
 
-    if ($_POST['mail_users'] == $compare_mail) {
-        $error_mail = $controller[0];
-    } else {
+
+    $regex_mail = preg_match('/^[A-Za-z0-9.-_]+@[A-za-z]+\.[a-z]{2,}/',$_POST['mail_users']);
+    $regex_pseudo = preg_match('/^[A-Za-z0-9]+$/',$_POST['pseudo_users']);
+
+
+    if ( $regex_mail === 1 ) {
         $mail_users = analyse($_POST['mail_users']);
+    } else {
+        $error_mail = $controller[0];
     }
 
-    if ($_POST['pseudo_users'] == $compare_pseudo) {
-        $error_psd = $controller[1];
-    } else {
+    if ( $regex_pseudo === 1 ) {
         $pseudo_users = analyse($_POST['pseudo_users']);
+    } else {
+        $error_psd = $controller[1];
     }
+
+
+    if ( !empty($mail_users) && $mail_users == $compare_mail ) {
+        $error_mail = $controller[0];
+    }
+
+    if ( !empty($pseudo_users) && $pseudo_users == $compare_pseudo ) {
+        $error_psd = $controller[1];
+    }
+
 
     if ($_POST['password_1'] != $_POST['password_2']) {
         $error_mdp = $controller[2];
@@ -49,42 +64,43 @@ if (isset($_POST['new'])) {
         $to = $mail_users;
         $subject = $controller[4];
         $message = '
-
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>' . $controller[4] . '</title>
-</head>
+<html lang="fr">
 <body>
-<div>
-    <img style="width: 20%" src="view/img/logov1.png" alt="logo portfolio">
-</div>
-<div>
+<div style=" width: 600px; padding: 3%; background-color: #ebebeb;">
     <div>
-        <p>' . $controller[6] . ' ' . $pseudo_users . '</p>
-        <p>' . $controller[7] . '</p>
-        <a href="http://adrien.webdev-cf2m.be/projet_portfolio/?log=' . urlencode($pseudo_users) . '&cle=' . urlencode($key) . '">' . $controller[8] . '</a>
+        <img style="width: 400px; margin: 2%" src="view/img/logov1.png" alt="logo portfolio">
     </div>
-    <div>
-        <p>' . $controller[9] . '</p>
-        <p>De Laet A.</p>
+    <div style="margin: 5%; padding: 2%; background-color: #fefefe; border-radius: 0.5rem">
+        <p>' . $controller[6] . ' <em>' . $pseudo_users . '</em></p>
+        <div style="padding: 1%"></div>
+        <div style="margin-left: 4%">
+            <p>' . $controller[7] . '</p>
+            <a href="http://adrien.webdev-cf2m.be/projet_portfolio/?log=' . urlencode($pseudo_users) . '&key=' . urlencode($key) . '">' . $controller[8] . '</a>
+            <div style="padding: 2%"></div>
+            <div style="margin-left: 4%">
+                <p>' . $controller[9] . '</p>
+                <p>De Laet A.</p>
+            </div>
+        </div>
+        <hr>
     </div>
-    <hr>
-    <div>
-        <p>' . $controller[10] . '</p>
-        <a href="http://adrien.webdev-cf2m.be/projet_portfolio/" target="_blank">portfolio.com</a>
+
+    <div style="margin: 1%; text-align: center">
+        <p>' . $controller[10] . ' ' . '<a href="http://adrien.webdev-cf2m.be/projet_portfolio/"
+                                 target="_blank">portfolio.com</a></p>
     </div>
 </div>
 </body>
 </html>
         ';
 
-        $header = 'MIME-Version: 1.0\r\n';
-        $header .= 'Content-type: text/html; charset=UTF-8\r\n';
-        $header .= 'From: ROBOT.CONTACT <robot.portfolio@gmail.com>\r\n';
-        $header .= 'X-Mailer: PHP/' . phpversion() . '\r\n';
+        $header[] = 'MIME-Version: 1.0';
+        $header[] = 'Content-type: text/html; charset="UTF-8"';
+        $header[] = 'From: ROBOT.VERIFY <robot.portfolio@gmail.com>';
+        $header[] = 'X-Mailer: PHP/' . phpversion();
 
-        mail($to, $subject, $message, $header);
+        mail($to, $subject, $message, implode('\r\n', $header));
+
         $validation = $controller[3];
     }
 }

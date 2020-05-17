@@ -1,0 +1,180 @@
+button:hover, a:hover {
+    transform: scale(1.1);
+}
+
+.header {
+    margin: 3%;
+}
+
+#menu-hidden {
+    width: 30%;
+    left: 17%;
+    position: fixed;
+}
+
+#menu-hidden a {
+    font-size: 1.4rem;
+}
+
+#menu-hidden a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: none;
+}
+
+
+/*--------------------------GLOBAL-------------------------*/
+
+.page {
+    width: 50%;
+}
+
+.page h1 {
+    font-size: 3rem;
+}
+
+.page p {
+    font-size: 1.2rem;
+}
+
+.page button {
+    width: 40%;
+    margin: 3% auto;
+}
+
+.popup {
+    width: 30%;
+}
+
+.popup-button {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.popup-button button {
+    width: 20%;
+}
+
+
+/*--------------------------HOME-------------------------*/
+
+.home-block {
+    display: flex;
+    justify-content: space-around;
+}
+
+.home-menu {
+    width: 22vw;
+    padding: 8%;
+}
+
+.home-menu:hover {
+    transform: scale(1.1);
+}
+
+.home-menu img {
+    height: 10vw;
+}
+
+/*--------------------------TUTORIAL-------------------------*/
+
+.article a {
+    padding: 60px;
+}
+
+/*--------------------------ERROR 404-------------------------*/
+
+.error {
+    height: 100vw;
+}
+
+.error h1 {
+    font-size: 12em;
+    text-align: center;
+}
+
+/*--------------------------ADMIN-------------------------*/
+
+.admin {
+    padding: 5%;
+}
+
+.admin-block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-admin {
+    width: 33%;
+    margin: 2%;
+}
+
+.button-admin:hover {
+    transform: scale(1.1);
+}
+
+.button-admin h2 {
+    text-align: center;
+}
+
+
+/*--------------------------ADMIN FORM-------------------------*/
+
+.button-crud button {
+    width: 20%;
+}
+
+.forms-read button {
+    width: 100%;
+    padding: 6% 12%;
+}
+
+.forms-read a {
+    padding: 3%;
+}
+
+.forms-read .back {
+    position: absolute;
+    top: -15%;
+    left: 24%;
+
+}
+
+/*--------------------------ADMIN REFERENCE------------------------*/
+
+.table-button button {
+    margin: 10px;
+}
+
+.table-button .read-pics {
+    width: 2.7rem;
+}
+
+.back-reference {
+    position: absolute;
+    top: -6%;
+    left: 30%;
+}
+
+.reference-button button {
+    width: 100%;
+}
+
+.reference:hover {
+    transform: scale(1.1);
+}
+
+/*--------------------------ADMIN GALLERY------------------------*/
+
+.gallery-crud-button button {
+    width: 26%;
+}
+
+
+
+
+
+
+
+
+
+

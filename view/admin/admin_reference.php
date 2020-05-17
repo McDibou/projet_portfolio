@@ -89,7 +89,8 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
                         <div class="table-button">
                             <?= more($item['name_pics']) ?>
                             <form method="post">
-                                <button type="submit" name="view_update_pics" value="<?= $item['id_pics'] ?>"><img
+                                <button class="read-pics" type="submit" name="view_update_pics"
+                                        value="<?= $item['id_pics'] ?>"><img
                                             src="view/img/reload.png"></button>
                             </form>
                         </div>
@@ -143,9 +144,10 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
                 <button class="valid-text" type="submit" name="view_update"
                         value="<?= $read['id_contents'] ?>"><?= $content[14] ?></button>
                 <div class="reference-button">
-                    <button class="invalid-text" type="submit" name="delete" value="<?= $read['id_contents'] ?>"><?= $content[15] ?></button>
+                    <button class="invalid-text  read" type="submit" name="delete"
+                            value="<?= $read['id_contents'] ?>"><?= $content[15] ?></button>
 
-                    <button class="back" type="submit" name="back"><img src="view/img/back.png"></button>
+                    <button class="back back-reference" type="submit" name="back"><img src="view/img/back.png"></button>
                 </div>
             </div>
         </form>
@@ -192,8 +194,9 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 
             <img src="view/img/<?= $view_update_pics['name_pics'] ?>">
 
-            <input name="name_update_pics" type="file" accept="image/*">
-
+            <div class="reference-input">
+                <input name="name_update_pics" type="file" accept="image/*">
+            </div>
             <div class="popup-button reference-button">
                 <button class="valid-text" type="submit" name="update_pics"
                         value="<?= $view_update_pics['id_pics'] ?>"><?= $content[14] ?></button>
@@ -212,7 +215,8 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
             <h3><?= $content[16] ?></h3>
             <p><?= $content[17] ?></p>
             <div class="popup-button">
-                <button class="invalid-text" type="submit" name="oui" value="<?= $_POST['delete'] ?>"><?= $content[18] ?></button>
+                <button class="invalid-text" type="submit" name="oui"
+                        value="<?= $_POST['delete'] ?>"><?= $content[18] ?></button>
 
                 <button class="valid-text" type="submit" name="non"><?= $content[19] ?></button>
             </div>

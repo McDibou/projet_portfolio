@@ -42,11 +42,6 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 
                 <form method="post" class="button-crud">
 
-                    <a href="mailto :<?= $item['mail_users'] ?>subject=PORFOLIO%20WEB%202020"
-                       target="_blank">
-                        <img src="view/img/answer.png">
-                    </a>
-
                     <!--Si admin n'a pas encore lu le formulaire-->
                     <?php if ($item['active_forms'] === '0') { ?>
                         <button type="submit" name="read" value="<?= $item['id_forms'] ?>"><img

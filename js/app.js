@@ -4,10 +4,10 @@
     function dropdown() {
         let drop = document.getElementById('menu-hidden');
 
-        if (drop.style.display === 'none') {
-            drop.style.display = 'flex';
-        } else {
+        if (drop.style.display === 'flex') {
             drop.style.display = 'none';
+        } else {
+            drop.style.display = 'flex';
         }
 
     }
