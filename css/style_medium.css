@@ -25,7 +25,8 @@ button:hover, a:hover {
 /*--------------------------GLOBAL-------------------------*/
 
 .page {
-    width: 50%;
+    width: 60%;
+    padding: 2%;
 }
 
 .page h1 {
@@ -46,12 +47,7 @@ button:hover, a:hover {
 }
 
 .popup-button {
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.popup-button button {
-    width: 20%;
+    font-size: 1rem;
 }
 
 
@@ -74,6 +70,15 @@ button:hover, a:hover {
 .home-menu img {
     height: 10vw;
 }
+
+.content h2 {
+    font-size: 2rem;
+}
+
+.home-page h2 {
+    font-size: 3rem;
+}
+
 
 /*--------------------------TUTORIAL-------------------------*/
 

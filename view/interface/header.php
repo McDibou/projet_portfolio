@@ -12,8 +12,8 @@ $content = afficheContentTab('menu', $lang, $db);
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" media="screen and (min-width: 700px)" href="css/style_medium.css">
-    <link rel="stylesheet" media="screen and (min-width: 1000px)" href="css/style_max.css">
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/style_medium.css">
+    <link rel="stylesheet" media="screen and (min-width: 1500px)" href="css/style_max.css">
 </head>
 <body>
 <header>

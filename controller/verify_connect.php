@@ -20,28 +20,28 @@ if (isset($_POST['new'])) {
     $compare_mail = $value['mail_users'];
 
 
-    $regex_mail = preg_match('/^[A-Za-z0-9.-_]+@[A-za-z]+\.[a-z]{2,}/',$_POST['mail_users']);
-    $regex_pseudo = preg_match('/^[A-Za-z0-9]+$/',$_POST['pseudo_users']);
+    $regex_mail = preg_match('/^[A-Za-z0-9.-_]+@[A-za-z]+\.[a-z]{2,}/', $_POST['mail_users']);
+    $regex_pseudo = preg_match('/^[A-Za-z0-9]+$/', $_POST['pseudo_users']);
 
 
-    if ( $regex_mail === 1 ) {
+    if ($regex_mail === 1) {
         $mail_users = analyse($_POST['mail_users']);
     } else {
         $error_mail = $controller[0];
     }
 
-    if ( $regex_pseudo === 1 ) {
+    if ($regex_pseudo === 1) {
         $pseudo_users = analyse($_POST['pseudo_users']);
     } else {
         $error_psd = $controller[1];
     }
 
 
-    if ( !empty($mail_users) && $mail_users == $compare_mail ) {
+    if (!empty($mail_users) && $mail_users == $compare_mail) {
         $error_mail = $controller[0];
     }
 
-    if ( !empty($pseudo_users) && $pseudo_users == $compare_pseudo ) {
+    if (!empty($pseudo_users) && $pseudo_users == $compare_pseudo) {
         $error_psd = $controller[1];
     }
 
@@ -63,14 +63,14 @@ if (isset($_POST['new'])) {
 
         $to = $mail_users;
         $subject = $controller[4];
+
         $message = '
 <html lang="fr">
 <body>
-<div style=" width: 600px; padding: 3%; background-color: #ebebeb;">
-    <div>
-        <img style="width: 400px; margin: 2%" src="view/img/logov1.png" alt="logo portfolio">
-    </div>
-    <div style="margin: 5%; padding: 2%; background-color: #fefefe; border-radius: 0.5rem">
+<style type="text/css"></style>
+<div style=" width: 600px; padding: 3%; background: linear-gradient(40deg, rgba(45,169,202,1) -15%, rgba(134,211,103,1) 95%);; border-radius: 2rem;">
+    <p style="font-size: 3rem; font-family: sans-serif">PORTFOLIO</p>
+    <div style="margin: 5%; padding: 2%; background-color: #ffffff; border-radius: 0.5rem">
         <p>' . $controller[6] . ' <em>' . $pseudo_users . '</em></p>
         <div style="padding: 1%"></div>
         <div style="margin-left: 4%">
@@ -84,22 +84,21 @@ if (isset($_POST['new'])) {
         </div>
         <hr>
     </div>
-
     <div style="margin: 1%; text-align: center">
-        <p>' . $controller[10] . ' ' . '<a href="http://adrien.webdev-cf2m.be/projet_portfolio/"
-                                 target="_blank">portfolio.com</a></p>
+        <p>' . $controller[10] . ' ' . '<a href="http://adrien.webdev-cf2m.be/projet_portfolio/" target="_blank">portfolio.com</a></p>
     </div>
 </div>
 </body>
 </html>
         ';
 
+
         $header[] = 'MIME-Version: 1.0';
-        $header[] = 'Content-type: text/html; charset="UTF-8"';
+        $header[] = 'Content-type: text/html; charset=UTF-8';
         $header[] = 'From: ROBOT.VERIFY <robot.portfolio@gmail.com>';
         $header[] = 'X-Mailer: PHP/' . phpversion();
 
-        mail($to, $subject, $message, implode('\r\n', $header));
+        mail($to, $subject, $message, implode("\r\n", $header));
 
         $validation = $controller[3];
     }

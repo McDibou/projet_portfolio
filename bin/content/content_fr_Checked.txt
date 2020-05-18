@@ -1,0 +1,330 @@
+//------------------------------------------------------------------------------------//
+	PAGE HEADER
+//------------------------------------------------------------------------------------//
+	
+Menu
+
+-Home
+-Galerie
+-Favoris
+-Tutoriels
+-Contactez-moi
+-Qui suis-je ?
+
+-Admin
+-Déconnexion
+
+-fr
+-en
+
+
+//------------------------------------------------------------------------------------//
+	PAGE ENREGISTREMENT
+//------------------------------------------------------------------------------------//
+
+
+Enregistrement & Connexion
+
+-Nom
+-Prénom
+-Adresse email
+-Pseudo
+-Mot de passe
+-Confirmation mot de passe
+
+-Pseudo
+-Mot de passe
+
++verify_connect.php
+
+-Cet e-mail est déjà utilisé, veuillez en renseigner un autre.
+-Ce pseudo est déjà utilisé, veuillez en renseigner un autre.
+-Les mots de passe ne sont pas identiques.
+
+-Merci pour votre inscription, un mail de confirmation vous sera envoyé.
+
+-Validation d'inscription / Portfolio
+-??TEXT??
+
+-Pseudo ou mot de passe invalide.
+
+//------------------------------------------------------------------------------------//
+	PAGE HOME
+//------------------------------------------------------------------------------------//
+
+-Favoris
+-Galerie
+-Tutoriels
+
+go
+
+//------------------------------------------------------------------------------------//
+	PAGE GALERIE
+//------------------------------------------------------------------------------------//
+
+Ma galerie
+
+" Le dessin n'est pas la forme, il est la manière de voir la forme. " prov. E. Degas
+
+-Inktober
+Inktober est un défi qui se déroule pendant le mois d'octobre. Le but est de produire un dessin par jour suivant une liste différente chaque année.
+
+-Affiches
+Vous trouverez, ci-dessous, quelques élaborations d'affiches de soirées pour le groupe de dj "Le Fieu Soundsystem".
+
+-Site Web
+Voici l'élaboration des sites web créés lors de la formation au Centre de Formation 2 Mille.
+
+//------------------------------------------------------------------------------------//
+	PAGE REFERENCE
+//------------------------------------------------------------------------------------//
+
+Mes favoris
+
+Bienvenue, ici vous retrouvez toutes mes sources d'inspiration et d'astuces qui me sont utiles à l'apprentissage du développement web.
+
+-openclassroom
+Formation en ligne qui propose des tutoriels où n'importe quel membre du site peut être auteur.
+https://openclassrooms.com/
+
+-W3schools
+Destiné à l'apprentissage en ligne des langages Web.
+https://www.w3schools.com/
+
+-php.net
+Wiki officiel du langage php.
+https://www.php.net/
+
+-csstricks
+Forum regroupant les idées et travaux sur le développement front-end.
+https://css-tricks.com/
+
+-stackoverflow
+Forum d'entraide centré sur le développement web.
+https://stackoverflow.com/
+
+//------------------------------------------------------------------------------------//
+	PAGE TUTORIAL
+//------------------------------------------------------------------------------------//
+
+
+Mes tutoriels
+
+PROPRIETES CSS 3D TRANSFORME :
+
+Je vais vous présenter le travail de David DeSandro sur la création de volumes en 3D avec CSS. 
+
+Bien que la 3D existe depuis longtemps dans le web avec canvas, Three.js (anciennement WebGL) ou encore notre défunt Flash.
+Depuis 2009, les développeurs peuvent profiter du module de transformation CSS 3D.
+Ce fut un soulagement pour les front-end qui, jusqu'à ce moment, s'armaient de patience à la maîtrise d'un langage tiers pour donner ne serait-ce qu'un peu de volume à leur site.
+
+Ce tutoriel, vous propose le cheminement de construction d'un volume 3D, étape par étape.
+En commençant par une simple perspective d'une surface plane jusqu'à un carrousel 3D interactif.
+Ici, pas de chipotage, il va à l'essentiel et, pour les plus flemmards d'entre nous, un CodePen est fourni à chaque étape.
+
+Sans plus attendre, voici le lien vers ce tutoriel, aussi intéressant qu'enrichissant et qui, une fois maîtrisé, vous donnera un panel de perspectives pour votre site.
+
+https://3dtransforms.desandro.com/
+
+Bon code.
+
+https://www.w3.org/TR/css-transforms-1/
+https://desandro.com/ 
+
+
+
+QU'ES-CE QUE C'EST GULP :
+
+Gulp est ce qu'on appelle un "Javascript task-runner" ou en français "Automatiseur de tâches", ce qui veut dire que ce toolkit est capable d'automatiser des tâches répétitives
+et d'accélérer le développement d'un projet à l'aide de plugins : principalement du côté front-end.
+
+Ses tâches sont aussi utiles que différentes les unes des autres :
+
+- Créer un serveur local.
+- Rechargement automatique du navigateur.
+- Optimisation et compression d'images.
+- Minifier et optimiser du CSS ou du JavaScript.
+- Création ou suppression de dossiers ou de fichiers.
+- Etc ...
+
+Il existe actuellement près de 4000 plugins qui, une fois choisis et intégrés à votre projet, vous feront gagner énorménent de temps de production.
+
+Je vous propose de vous montrer comment implémenter Gulp à vos projets suivi d'un exemple.
+
+C'est parti :
+
+Pour commencer, vous aurez besoin d'installer Node.js.
+C'est un environnement Javascript qui est équipé de plugins nommés "npm". Nous aurons besoin de ce dernier pour mettre en place notre environnement Gulp.
+
+Une fois Node.js installé, ouvrez un terminal de commande (cmd ou powershell) n'importe où :
+`npm install --global gulp-cli`
+Cette commande aura pour effet d'installer Gulp de manière globale sur votre ordinateur et ce une fois pour toutes.
+
+Nous allons, maintenant, initialiser gulp dans vos projets. Ouvrez un terminal de commande à la racine de votre projet:
+`npm init`
+
+On vous demandera d'entrer plusieurs informations sur votre projet : nom, version, description, etc..
+Ne vous en faites pas, vous pourrez modifier ces informations par la suite (dans le fichier package.json).
+
+Il en suit, la partie la plus importante et la plus amusante : le choix des plugins et leur installation.
+Pour se faire direction https://gulpjs.com/plugins
+
+Une fois votre choix fait, il faudra installer l'ensemble des plugins via votre terminal :
+`npm install --save-dev`
+Ils devront être entrés un à un.
+
+Si vous souhaitez ne pas vous prendre la tête pour le moment, je vous propose d'installer les modules principaux de Gulp :
+`npm install gulp --save-dev`
+
+Une fois fait, un dossier `node_modules` devrait apparaître dans votre projet. 
+Voilà, il ne reste plus qu'a créer vos automatisations.
+
+Pour cela, vous allez devoir créer un fichier à la racine de votre projet: gulpfile.js.
+Il sert à gérer les tâches, leurs options, leurs sources et destinations.
+Dans celui-ci, commencez par déclarer toutes les variables dont vous aurez besoin.
+
+```
+// Requis
+var gulp = require('gulp');
+
+// Include plugins
+var plugins = require('gulp-load-plugins')(); // tous les plugins de package.json
+
+// Variables de chemins
+var source = './src'; // dossier de travail
+var destination = './dist'; // dossier à livrer.
+```
+
+À présent, dans ce même fichier, nous allons créer notre première tâche : minifier le css
+
+```
+gulp.task('minifier', function () { // Tâche "minifier" 
+return gulp.src(source + *.css) //copie du fichier à modifier 
+.pipe(plugins.csso()) //application du plugin sur le fichier 
+// ici plus de plugins Gulp à exécuter 
+.pipe(gulp.dest(destination)); //destination du fichier modifié});
+
+```
+
+Pour exécuter cette tâche, il vous faudra rouvrir votre terminal dans votre projet :
+`gulp minifier`
+
+Par la suite, quand vous commencerez à avoir plusieurs tâches, vous pourrez les regrouper et ainsi, créer plusieurs zones de développement.
+
+Par exemple :
+
+```
+// Tâche "build"
+gulp.task('build', ['tache']);
+
+// Tâche "prod" = Build + minifier
+gulp.task('prod', ['build', 'minifier']);
+```
+
+Voilà, j'espère que cette introduction a Gulp vous a plu et que votre curiosité est satisfaite.
+Quoi qu'il en soit, l'usage de cet outil améliorera et optimisera votre façon de travailler.
+
+Bon code.
+
+//------------------------------------------------------------------------------------//
+	PAGE CV
+//------------------------------------------------------------------------------------//
+
+
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN
+//------------------------------------------------------------------------------------//
+
+-Espace Formulaires.
+-Espace galeries.
+-Espace favoris.
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN FORMS
+//------------------------------------------------------------------------------------//
+
+Espace Formulaires :
+
+-date
+-titre
+-texte
+-nom
+-prénom
+-e-mail
+
+Answer
+Send me
+Delete
+
+ATTENTION
+Vous allez supprimer le mail de
+oui/non
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN GALERIES
+//------------------------------------------------------------------------------------//
+
+Espace galeries
+
+-rajouter une image :
+Choisir la catégorie - importer
+
+ATTENTION
+Vous allez supprimer : name_pics
+oui/non
+
+
+//------------------------------------------------------------------------------------//
+	PAGE ADMIN REFERENCES
+//------------------------------------------------------------------------------------//
+
+
+Espace favori
+
+-Le titre fr
+-Le texte fr
+-Le titre en
+-Le texte en
+-Le lien
+-L'image
+
+-Nouveau
+
+-langage
+-date
+-titre
+-texte
+-lien
+-image
+
+Lire/Mise à jour/Supprimer
+
+ATTENTION
+Si vous supprimez cet article, 
+vous devrez supprimer l'article dans l'autre langue.
+oui/non
+
+//------------------------------------------------------------------------------------//
+	PAGE CONTACT
+//------------------------------------------------------------------------------------//
+
+Contactez-moi
+
+-Sujet
+-Message
+-Envoyer
+
++verify_contact.php
+
+-Réceptions avis
+-??HTML??
+
+//------------------------------------------------------------------------------------//
+	PAGE 404
+//------------------------------------------------------------------------------------//
+
+Page non trouvée.
+
+La page que vous avez demandée n'existe plus.
+Retour - Accueil

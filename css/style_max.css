@@ -1,3 +1,7 @@
+.page {
+    width: 30%;
+}
+
 #menu-hidden {
     width: 15%;
     left: 9%;
@@ -8,18 +12,11 @@
     margin: 0;
     position: relative;
     left: -22%;
-}
-
-.page h2 {
-    font-size: 2rem;
+    z-index: -1;
 }
 
 .page h1 {
-    font-size: 6rem;
-}
-
-.page {
-    width: 40%;
+    font-size: 2rem;
 }
 
 .content {

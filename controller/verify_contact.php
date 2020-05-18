@@ -22,14 +22,14 @@ if (isset($_POST['forms'])) {
 
         $to = $user['mail_users'];
         $subject = $controller[0];
+
         $message = '
 <html lang="fr">
 <body>
-<div style=" width: 600px; padding: 3%; background-color: #ebebeb;">
-    <div>
-        <img style="width: 400px; margin: 2%" src="view/img/logov1.png" alt="logo portfolio">
-    </div>
-    <div style="margin: 5%; padding: 2%; background-color: #fefefe; border-radius: 0.5rem">
+<style type="text/css"></style>
+<div style=" width: 600px; padding: 3%; background: linear-gradient(40deg, rgba(45,169,202,1) -15%, rgba(134,211,103,1) 95%);; border-radius: 2rem;">
+    <p style="font-size: 3rem; font-family: sans-serif">PORTFOLIO</p>
+    <div style="margin: 5%; padding: 2%; background-color: #ffffff; border-radius: 0.5rem">
         <p>' . $controller[2] . ' <em>' . $user['pseudo_users'] . '</em></p>
         <div style="padding: 1%"></div>
         <div style="margin-left: 4%">
@@ -43,7 +43,6 @@ if (isset($_POST['forms'])) {
         </div>
         <hr>
     </div>
-
     <div style="margin: 1%; text-align: center">
         <p>' . $controller[6] . ' ' . '<a href="http://adrien.webdev-cf2m.be/projet_portfolio/"
                                 target="_blank">portfolio.com</a></p>
@@ -54,14 +53,13 @@ if (isset($_POST['forms'])) {
         ';
 
         $header[] = 'MIME-Version: 1.0';
-        $header[] = 'Content-type: text/html; charset="UTF-8"';
+        $header[] = 'Content-type: text/html; charset=UTF-8';
         $header[] = 'From: ROBOT.CONTACT <robot.portfolio@gmail.com>';
         $header[] = 'X-Mailer: PHP/' . phpversion();
 
-        mail($to, $subject, $message, implode('\r\n',$header));
+        mail($to, $subject, $message, implode("\r\n", $header));
 
         $reception = $controller[1] . ' ' . $controller[3];
 
     }
-
 }
