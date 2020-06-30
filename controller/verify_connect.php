@@ -19,10 +19,8 @@ if (isset($_POST['new'])) {
     $value = select('users', 'mail_users', $_POST['mail_users'], $db);
     $compare_mail = $value['mail_users'];
 
-
-    $regex_mail = preg_match('/^[A-Za-z0-9.-_]+@[A-za-z]+\.[a-z]{2,}/', $_POST['mail_users']);
+    $regex_mail = preg_match('/^[A-Za-z0-9.-_]+@[A-za-z0-9]+\.[a-z0-9]{2,}/', $_POST['mail_users']);
     $regex_pseudo = preg_match('/^[A-Za-z0-9]+$/', $_POST['pseudo_users']);
-
 
     if ($regex_mail === 1) {
         $mail_users = analyse($_POST['mail_users']);
@@ -113,12 +111,10 @@ if (isset($_POST['connect'])) {
 
     $value = select('users', 'pseudo_users', $pseudo_enter, $db);
     $id = $value['roles_id'];
+    $active = $value['active_users'];
 
     $value = select('roles', 'name_roles', 'admin', $db);
     $id_admin = $value['id_roles'];
-
-    $value = select('users', 'pseudo_users', $pseudo_enter, $db);
-    $active = $value['active_users'];
 
     $value = (isset($id)) ? compareUsers($pseudo_enter, $id, $db) : null;
     $pseudo = $value['pseudo_users'];
@@ -130,14 +126,14 @@ if (isset($_POST['connect'])) {
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['role'] = $id;
 
-        header('Location: ./');
+        header('Location: ?p=admin');
 
         //si entrée valide et utilisateu, creation session
     } elseif (($pseudo_enter === $pseudo) && (password_verify($password_enter, $password)) && ($active == '1')) {
 
         $_SESSION['pseudo'] = $pseudo;
 
-        header('Location: ./');
+        header('Location: ?p=admin');
 
         //si entrée non valide
     } else {

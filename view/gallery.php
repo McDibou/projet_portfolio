@@ -5,35 +5,49 @@ $page = affichePage('gallery', $lang, $db);
 $content = afficheContent('gallery', $lang, $db);
 
 ?>
-
+<style>
+    body {
+        background: linear-gradient(350deg, rgba(243, 160, 131, 1) 10%, rgba(216, 131, 243, 1) 80%);
+    }
+</style>
 <title><?= $page['title_pages'] ?></title>
-<body class="fond-gallery">
-<div class="page page-gallery">
+<body>
+<div class="container d-flex flex-column text-center col-lg-5 col-md-8 col-sm-10">
 
-    <h1><?= $page['title_pages'] ?></h1>
+    <h1 class="display-4 my-3"><?= $page['title_pages'] ?></h1>
     <p><?= $page['text_pages'] ?></p>
 
     <!--Boucle affichage catégories galerie-->
     <?php while ($item = mysqli_fetch_assoc($content)) { ?>
-        <div class="content gallery-content">
-            <div>
-                <h2><?= $item['title_contents'] ?></h2>
-                <p><?= $item['text_contents'] ?></p>
-            </div>
-            <div class="affiche-gallery">
-                <!--Boucle affichage images liées à sa catégorie-->
-                <?php $img = selectGallery($item['title_contents'], $lang, $db) ?>
 
-                <button class="slide-left" onclick="plusDivs<?= $item['link_contents'] ?>(-1)">&#10094;</button>
-
-                <?php while ($affiche = mysqli_fetch_assoc($img)) { ?>
-                    <img class="slide-<?= $item['link_contents'] ?>" src="view/img/<?= $affiche['name_pics'] ?>">
-                <?php } ?>
-
-                <button class="slide-right" onclick="plusDivs<?= $item['link_contents'] ?>(+1)">&#10095;</button>
+        <div class="card m-3 p-4">
+            <div class="container col-8 my-5">
+                <h3 class="card-title"><?= $item['title_contents'] ?></h3>
+                <p class="card-text text-justify"><?= $item['text_contents'] ?></p>
             </div>
 
+            <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="carousel-inner">
+                    <?php $img = selectGallery($item['title_contents'], $lang, $db) ?>
+                    <?php $counter = 1;
+                    while ($affiche = mysqli_fetch_assoc($img)) { ?>
+                        <div class="carousel-item <?php if ($counter <= 1) {
+                            echo " active";
+                        } ?>">
+                            <img class="d-block w-100" src="view/img/<?= $affiche['name_pics'] ?>">
+                        </div>
+                        <?php $counter++;
+                    } ?>
+                </div>
+<!--                <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">-->
+<!--                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--                </a>-->
+<!--                <a class="carousel-control-next" href="#demo" role="button" data-slide="next">-->
+<!--                    <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--                </a>-->
+            </div>
         </div>
+
     <?php } ?>
 </div>
 </body>

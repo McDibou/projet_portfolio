@@ -1,9 +1,9 @@
-<div class="article">
+<div class="container col-10 text-justify mb-3">
     <p>Gulp is a "Javascript task-runner", this toolkit automates repetitive tasks.
         and speeds up project development with plugins: front-end.</p>
 
     <p>Its tasks are different from each other :</p>
-    <div>
+
         <ul>
             <li>creating a local server.</li>
             <li>Automatic reload of the browser.</li>
@@ -12,88 +12,80 @@
             <li>Creating or deleting folders or files.</li>
             <li>Etc ...</li>
         </ul>
-    </div>
+
     <p>There are 4000 plugins at the moment. Which will save you production time.</p>
     <p>I will show you how to implement Gulp in your projects and an example.</p>
-</div>
 
-<div>
     <p>Here we go:</p>
     <p>You'll need to install Node.js.
         It's a Javascript environment that has plugins named "npm". We will need it to set up our Gulp environment.</p>
 
     <p>Node.js installed. Open a command terminal (cmd or powershell) anywhere:</p>
 
-    <pre>
+    <pre class=" bg-light p-3 border-left border-warning ">
 npm install --global gulp-cli</pre>
 
     <p>This command installs Gulp globally on your computer.</p>
-</div>
 
-<div>
     <p>We'll initialize gulp in your plans. Open a command terminal at the root of your project:</p>
 
-    <pre>
+    <pre class=" bg-light p-3 border-left border-warning ">
 npm init</pre>
 
     <p>Here enter the informations about your project: name, version, description, etc...
         Don't worry, you will be able to modify those informations later (in the package.json).</p>
-</div>
 
-<div>
     <p>Then choose the plugins to install.
         Here : <a href="https://gulpjs.com/plugins" target="_blank">https://gulpjs.com/plugins</a></p>
 
     <p>Afterwards, install all the plugins via your terminal using :</p>
 
-    <pre>
+    <pre class=" bg-light p-3 border-left border-warning ">
 npm install --save-dev</pre>
 
     <p>One by one.</p>
 
     <p>Otherwise, install the main Gulp modules:</p>
 
-    <pre>
+    <pre class=" bg-light p-3 border-left border-warning ">
 npm install gulp --save-dev</pre>
 
 
     <p>A `node_modules` folder appears in your project.
         That's it, let's go for automation.</p>
-</div>
 
-<div>
     <p>You will create a file at the root of your project: gulpfile.js.
         It is used to manage tasks, their options, sources and destinations.
         In it, start by declaring all the variables you will need.</p>
 
 
-    <pre>
-<i>// Required</i>
+    <pre class=" bg-light p-3 border-left border-warning ">
+<i class="text-success">// Required</i>
 var gulp = require('gulp');
 
-<i>// Include plugins</i>
-var plugins = require('gulp-load-plugins')(); <i>// all the plugins in package.json</i>
+<i class="text-success">// Include plugins</i>
+var plugins = require('gulp-load-plugins')(); <i class="text-success">// all the plugins in package.json</i>
 
-<i>// Path variables</i>
-var source = './src'; <i>// working folder</i>
-var destination = './dist'; <i>// folder to be delivered.</i></pre>
+<i class="text-success">// Path variables</i>
+var source = './src'; <i class="text-success">// working folder</i>
+var destination = './dist'; <i class="text-success">// folder to be delivered.</i></pre>
 
 
     <p>Now we'll go and create our first task: to minimize the css</p>
 
 
-    <pre>
-gulp.task('minifier', function() {          <i>// Task "minifier"</i>
-    return gulp.src(source + *.css)     <i>// Copy of the file to be modified</i>
-    .pipe(plugins.csso())                     <i>// Applying the plugin to the file</i>
-                                                         <i>// Here no more Gulp plugins to run</i>
-    .pipe(gulp.dest(destination));       <i>// Designation of the file modify</i>
+    <pre class=" bg-light p-3 border-left border-warning ">
+gulp.task('minifier', function() {          <i class="text-success">// Task "minifier"</i>
+    return gulp.src(source + *.css)     <i class="text-success">// Copy of the file to be modified</i>
+    .pipe(plugins.csso())                     <i class="text-success">// Applying the plugin to the file</i>
+                                                         <i class="text-success">// Here no more Gulp plugins to run</i>
+    .pipe(gulp.dest(destination));       <i class="text-success">// Designation of the file modify</i>
 });</pre>
 
 
     <p>To execute this task, open the terminal in your project :</p>
 
-        <pre>
+        <pre class=" bg-light p-3 border-left border-warning ">
 gulp minifier</pre>
 
     <p>When you have a lot of tasks, you can create a lot of areas of development.</p>
@@ -101,16 +93,13 @@ gulp minifier</pre>
     <p>For example:</p>
 
 
-    <pre>
-<i>// Task "build"</i>
+    <pre class=" bg-light p-3 border-left border-warning ">
+<i class="text-success">// Task "build"</i>
 gulp.task('build', ['task']);
 
-<i>// Task "prod" = Build + minify</i>
+<i class="text-success">// Task "prod" = Build + minify</i>
 gulp.task('prod', ['build', 'minifier']);</pre>
 
-</div>
-
-<div>
     <p>I hope you enjoyed this introduction to Gulp. And that your curiosity is satisfied.
         The use of this tool will improve and optimize your way of working.</p>
     <p>Good code.</p>

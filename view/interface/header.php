@@ -11,71 +11,86 @@ $content = afficheContentTab('menu', $lang, $db);
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/style_medium.css">
-    <link rel="stylesheet" media="screen and (min-width: 1500px)" href="css/style_max.css">
+    <link rel="stylesheet" type="text/css" href="css/product.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
 </head>
 <body>
 <header>
-    <div class="header">
-        <div class="menu">
+    <div class="m-lg-5 m-3 d-flex justify-content-between">
+        <div class="d-flex align-items-center">
             <!--Switch langages-->
-            <div class="menu-burger">
-                <?php if (!empty($_SESSION['pseudo'])) { ?>
+            <div class="dropdown">
 
-                    <button onclick="dropdown()"><img src="view/img/burger.png"></button>
+                <button class="btn btn-light" type="button" data-toggle="dropdown">
+                    <img style="height: 2rem" src="view/img/burger.png">
+                </button>
 
-                    <div id="menu-hidden">
-                        <a class="menu-top" href="./"><?= $content[0] ?></a>
-                        <a href="?p=<?= $menu[2][0] ?>"><?= $content[2] ?></a>
-                        <a href="?p=<?= $menu[1][0] ?>"><?= $content[1] ?></a>
-                        <a href="?p=<?= $menu[3][0] ?>"><?= $content[3] ?></a>
-                        <a href="?p=<?= $menu[4][0] ?>"><?= $content[4] ?></a>
-                        <a class="menu-bottum" href="?p=<?= $menu[5][0] ?>"><?= $content[5] ?></a>
-                        <?php if (!empty($_SESSION['role'])) { ?>
-                            <a class="menu-admin" href="?p=<?= $menu[6][0] ?>"><?= $content[6] ?></a>
-                        <?php } ?>
-                    </div>
+                <div class="dropdown-menu mt-3 ml-lg-n4">
+                    <a class="dropdown-item py-2 px-5 text-uppercase font-weight-bold" href="./"><?= $content[0] ?></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item py-2 px-5 text-uppercase font-weight-bold"
+                       href="?p=<?= $menu[2][0] ?>"><?= $content[2] ?></a>
+                    <a class="dropdown-item py-2 px-5 text-uppercase font-weight-bold"
+                       href="?p=<?= $menu[1][0] ?>"><?= $content[1] ?></a>
+                    <a class="dropdown-item py-2 px-5 text-uppercase font-weight-bold"
+                       href="?p=<?= $menu[3][0] ?>"><?= $content[3] ?></a>
+                    <a class="dropdown-item py-2 px-5 text-uppercase font-weight-bold"
+                       href="?p=<?= $menu[4][0] ?>"><?= $content[4] ?></a>
+                    <a class="dropdown-item py-2 px-5 text-uppercase font-weight-bold"
+                       href="?p=<?= $menu[5][0] ?>"><?= $content[5] ?></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item py-2 px-5 text-uppercase font-weight-bold"
+                       href="?p=<?= $menu[6][0] ?>"><?= $content[6] ?></a>
+                </div>
 
-                <?php } ?>
             </div>
 
             <!--Switch langages-->
             <form method="post">
                 <?php if ($lang == 1) { ?>
-                    <button type="submit" name="lang" value="2"><p><?= $content[7] ?></p></button>
+                    <button class="btn btn-light m-2" style="font-size: 1.4rem; font-weight: 600" type="submit"
+                            name="lang" value="2"><?= $content[7] ?></button>
                 <?php } else { ?>
-                    <button type="submit" name="lang" value="1"><p><?= $content[8] ?></p></button>
+                    <button class="btn btn-light m-2" style="font-size: 1.4rem; font-weight: 600" type="submit"
+                            name="lang" value="1"><?= $content[8] ?></button>
                 <?php } ?>
             </form>
         </div>
 
-        <div class="menu menu-right">
+        <div class="d-flex align-items-center">
             <!--affichage Pseudo-->
-            <div class="pseudo"><?= (!empty($_SESSION['pseudo'])) ? $_SESSION['pseudo'] : null; ?></div>
+
 
             <!--button déconnexion-->
             <?php if (!empty($_SESSION['pseudo'])) { ?>
-                <form method="post">
-                    <button type="submit" name="logout"><img src="view/img/disconnect.png" alt=""></button>
-                </form>
+                <div class="m-2" style="font-size: 1.4rem; font-weight: 600"><?= $_SESSION['pseudo'] ?></div>
+                <button class="btn btn-light m-2" data-toggle="modal" data-target="#exampleModalCenter">
+                    <img style="height: 2rem" src="view/img/disconnect.png" alt="">
+                </button>
             <?php } ?>
         </div>
     </div>
 
 </header>
-<div>
-    <!--affiche confirmation déconnexion-->
-    <?php if (isset($_POST['logout'])) { ?>
-        <div class="trame">
-            <form method="post" class="popup">
-                <h1><?= $content[9] ?></h1>
 
-                <div class="popup-button">
-                    <button class="invalid-text" type="submit" name="disconnect"><?= $content[10] ?></button>
-                    <button class="valid-text" type="submit" name="non"><?= $content[11] ?></button>
+<!--affiche confirmation déconnexion-->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form method="post">
+                <div class="modal-body text-center m-5">
+                    <h3><?= $content[9] ?></h3>
+                    <div class="pt-5">
+                        <button class="btn btn-lg btn-outline-danger font-weight-bold" type="submit" name="disconnect"><?= $content[10] ?></button>
+                        <button class="btn btn-lg btn-outline-info font-weight-bold" type="submit" name="non"><?= $content[11] ?></button>
+                    </div>
                 </div>
             </form>
         </div>
-    <?php } ?>
+    </div>
 </div>
+

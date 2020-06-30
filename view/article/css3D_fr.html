@@ -1,3 +1,77 @@
+<style>
+    .scene {
+        margin: 1rem 0;
+        perspective: 1000px;
+        z-index: 1;
+    }
+
+    .cube {
+        width: 150px;
+        height: 150px;
+        transform-style: preserve-3d;
+        margin: 0 auto;
+    }
+
+    .animation {
+        animation: moveCube 25s infinite ease-in-out;
+    }
+
+    @keyframes moveCube {
+        0% {
+            transform: rotateX( 0deg) rotateY( 0deg);
+        }
+        10% {
+            transform: rotateX( 0deg) rotateY( 0deg);
+        }
+        100% {
+            transform: rotateX(360deg) rotateY(360deg);
+        }
+    }
+
+    .cube-face {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border: 2px solid black;
+        line-height: 150px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .face-front,
+    .face-right,
+    .face-back,
+    .face-left,
+    .face-top,
+    .face-bottom {
+        background: hsla(0, 0%, 100%, 0.6);
+    }
+
+    .face-front {
+        transform: rotateY( 0deg) translateZ(75px);
+    }
+
+    .face-right {
+        transform: rotateY( 90deg) translateZ(75px);
+    }
+
+    .face-back {
+        transform: rotateY(180deg) translateZ(75px);
+    }
+
+    .face-left {
+        transform: rotateY(-90deg) translateZ(75px);
+    }
+
+    .face-top {
+        transform: rotateX( 90deg) translateZ(75px);
+    }
+
+    .face-bottom {
+        transform: rotateX(-90deg) translateZ(75px);
+    }
+</style>
 <div class="scene">
     <div class="cube animation">
         <div class="cube-face face-front">FRONT</div>
@@ -9,7 +83,7 @@
     </div>
 </div>
 
-<div class="article">
+<div class="container col-10 text-justify mb-3">
     <p>Je vais vous présenter le travail de David DeSandro sur la création de volume en 3D avec CSS.</p>
     <p>Bien que la 3D existe depuis longtemps dans le web avec canvas, Three.js (WebGL) ou encore notre
         défunt Flash.
