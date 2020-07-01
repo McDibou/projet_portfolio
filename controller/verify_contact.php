@@ -8,19 +8,33 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARA
 if (isset($_POST['forms'])) {
 
     //recuperation des données utilisateur
-    $user = select('users', 'pseudo_users', $_SESSION['pseudo'], $db);
-    $id = $user['id_users'];
+    if (!empty($_SESSION['pseudo'])) {
+        $user = select('users', 'pseudo_users', $_SESSION['pseudo'], $db);
+        $id = $user['id_users'];
+    } else {
+        $user['pseudo_users'] = 'User';
+    }
 
     //verification des entrées utilisateur
     $title = analyse($_POST['title_forms']);
     $text = analyse($_POST['text_forms']);
 
+    if (empty($_SESSION['pseudo'])) {
+        $mail = analyse($_POST['mail_users']);
+    }
+
     // Si toutes entrées valide, creation formulaire et envoie de mail de reception
-    if ((!empty($title) && (!empty($text))) && (!empty($id))) {
+    if ((!empty($title) && (!empty($text)))) {
 
-        insertForms($title, $text, $id, $db);
+        if (empty($_SESSION['pseudo'])) {
+            $mailUser = $mail;
+            insertNoUserForms($title, $text, $mailUser, $db);
+        } else {
+            $mailUser = $user['mail_users'];
+            insertForms($title, $text, $mailUser, $id, $db);
+        }
 
-        $to = $user['mail_users'];
+        $to = $mailUser;
         $subject = $controller[0];
 
         $message = '
