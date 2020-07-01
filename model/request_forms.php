@@ -3,7 +3,7 @@
 // CRUD_forms.php
 function readForms($id, $db)
 {
-    return mysqli_fetch_assoc(mysqli_query($db, "SELECT * FROM forms JOIN users ON users_id = id_users AND id_forms = $id"));
+    return mysqli_fetch_assoc(mysqli_query($db, "SELECT * FROM forms JOIN users ON users_id = id_users OR id_forms = $id"));
 }
 
 // CRUD_reference.php

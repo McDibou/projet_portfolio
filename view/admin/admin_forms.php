@@ -19,12 +19,12 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 </div>
 <!--affichage read formulaires-->
 <?php if (isset ($_POST['read'])) { ?>
-
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form method="post">
                 <div class="modal-header">
                     <h3 class="modal-title"> <?= $read['title_forms'] ?> </h3>
+                    <?php  ?>
                 </div>
                 <div class="modal-body">
                     <p> <?= $read['text_forms'] ?> </p>
@@ -32,7 +32,7 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
                 <div class="modal-footer">
                     <div>
                         <a class="btn btn-outline-info btn-lg"
-                           href="mailto :<?= $read['mail_users'] ?>subject=PORFOLIO%20WEB%202020"
+                           href="mailto:<?= $read['mail_forms'] ?>"
                            target="_blank"><?= $content[6] ?></a>
 
                         <button class="btn btn-outline-danger btn-lg" type="submit" name="delete"
@@ -60,7 +60,7 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
                     <h3><?= $content[9] ?></h3>
                 </div>
                 <div class="modal-body">
-                    <p><?= $content[10] . ' : ' . $user['mail_users'] ?></p>
+                    <p><?= $content[10] . ' : ' . $user['mail_forms'] ?></p>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-danger btn-lg" type="submit" name="oui"
@@ -100,7 +100,7 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
                     <td class="align-middle"><?= more($item['text_forms']) ?></td>
                     <td class="align-middle"><?= $item['name_users'] ?></td>
                     <td class="align-middle"><?= $item['username_users'] ?></td>
-                    <td class="align-middle"><?= $item['mail_users'] ?></td>
+                    <td class="align-middle"><?= $item['mail_forms'] ?></td>
 
                     <!--boutons CRUD-->
                     <td class="align-middle">
