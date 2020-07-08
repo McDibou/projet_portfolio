@@ -7,7 +7,7 @@ $content = afficheContent('tutorial', $lang, $db);
 ?>
 <style>
     body {
-        background: linear-gradient(350deg, rgb(235, 160, 76) 10%, rgb(239, 233, 89) 80%);
+        background: linear-gradient(350deg, rgb(235, 160, 76) 10%, rgb(239, 233, 89) 80%) fixed;
     }
 </style>
 <title><?= $page['title_pages'] ?></title>

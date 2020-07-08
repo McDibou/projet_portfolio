@@ -10,8 +10,7 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 ?>
 <style>
     body {
-        background: linear-gradient(45deg, rgba(45, 169, 202, 1) -15%, rgba(134, 211, 103, 1) 95%);
-        height: 95vh;
+        background: linear-gradient(45deg, rgba(45, 169, 202, 1) -15%, rgba(134, 211, 103, 1) 95%) fixed;
     }
 </style>
 <div class="container text-center mt-5">

@@ -7,7 +7,7 @@ $content = afficheContentImg('reference', $lang, $db);
 ?>
 <style>
     body {
-        background: linear-gradient(340deg, rgb(158, 121, 255) 10%, rgb(139, 244, 195) 80%);
+        background: linear-gradient(340deg, rgb(158, 121, 255) 10%, rgb(139, 244, 195) 80%) fixed;
     }
 </style>
 <title><?= $page['title_pages'] ?></title>

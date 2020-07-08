@@ -7,7 +7,7 @@ $content = afficheContent('gallery', $lang, $db);
 ?>
 <style>
     body {
-        background: linear-gradient(350deg, rgba(243, 160, 131, 1) 10%, rgba(216, 131, 243, 1) 80%);
+        background: linear-gradient(350deg, rgba(243, 160, 131, 1) 10%, rgba(216, 131, 243, 1) 80%) fixed;
     }
 </style>
 <title><?= $page['title_pages'] ?></title>
@@ -39,12 +39,6 @@ $content = afficheContent('gallery', $lang, $db);
                         <?php $counter++;
                     } ?>
                 </div>
-<!--                <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">-->
-<!--                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--                </a>-->
-<!--                <a class="carousel-control-next" href="#demo" role="button" data-slide="next">-->
-<!--                    <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--                </a>-->
             </div>
         </div>
 

@@ -1,46 +1,40 @@
 <div class="container col-10 text-justify mb-3">
-    <p>Gulp est ce qu'on appelle un "Javascript task-runner" ou en français "Automatiseur de tâches" ce qui veut dire
-        que ce
-        toolkit est capable d'automatiser des tâches répétitives
-        et d'accélérer le développement d'un projet à l'aide de plugins : principalement du coté front-end.</p>
+    <p>Gulp est ce qu'on appelle un "Javascript task-runner" ou en français "Automatiseur de tâches", ce qui veut dire que ce toolkit est capable d'automatiser des tâches répétitives
+        et d'accélérer le développement d'un projet à l'aide de plugins : principalement du côté front-end.</p>
 
-    <p>Ses taches sont aussi utiles que différente les unes des autres :</p>
+    <p>Ses tâches sont aussi utiles que différentes les unes des autres :</p>
 
         <ul>
-            <li>créer un serveur local.</li>
-            <li>Rechargement automatique le navigateur.</li>
+            <li>Créer un serveur local.</li>
+            <li>Rechargement automatique du navigateur.</li>
             <li>Optimisation et compression d'images.</li>
             <li>Minifier et optimiser du CSS ou du JavaScript.</li>
             <li>Création ou suppression de dossiers ou de fichiers.</li>
             <li>Etc ...</li>
         </ul>
 
-    <p>Il existe près de 4000 plugins pour l'instant. Qui, une fois choisit et intégré à votre projet, vous feras gagnez
-        enorménent de temps de production.</p>
+    <p>Il existe actuellement près de 4000 plugins qui, une fois choisis et intégrés à votre projet, vous feront gagner énorménent de temps de production.</p>
     <p>Je vous propose de vous montrer comment implémenter Gulp à vos projets suivi d'un exemple.</p>
 
     <p>C'est parti :</p>
-    <p>Pour commencer vous aurez besoin d'installer Node.js.
-        C'est un environnement Javascript qui est équipé de plugins nommé "npm". Nous aurons besoin de ce dernier pour
-        mettre en place notre environnement Gulp.</p>
+    <p>Pour commencer, vous aurez besoin d'installer Node.js.
+        C'est un environnement Javascript qui est équipé de plugins nommés "npm". Nous aurons besoin de ce dernier pour mettre en place notre environnement Gulp.</p>
 
-    <p>Une fois Node.js installé, ouvré un terminal de commande (cmd ou powershell) n'importe où :</p>
+    <p>Une fois Node.js installé, ouvrez un terminal de commande (cmd ou powershell) n'importe où :</p>
 
     <pre class=" bg-light p-3 border-left border-warning ">
 npm install --global gulp-cli</pre>
 
-    <p>Cette commande aura pour effet d'installer Gulp de manière globale sur votre ordinateur, et une fois pour
-        toutes.</p>
+    <p>Cette commande aura pour effet d'installer Gulp de manière globale sur votre ordinateur et ce une fois pour toutes.</p>
 
-    <p>Nous allons, maintenant, initialiser gulp dans vos projets. Ouvrez un terminal de commande à la racine de votre
-        projet:</p>
+    <p>Nous allons maintenant initialiser gulp dans vos projets. Ouvrez un terminal de commande à la racine de votre projet :</p>
 
     <pre class=" bg-light p-3 border-left border-warning ">
 npm init</pre>
 
 
     <p>On vous demandera d'entrer plusieurs informations sur votre projet : nom, version, description, etc..
-        Ne vous en faites pas, vous pourrez modifier ses informations par la suite (dans le fichier package.json).</p>
+        Ne vous en faites pas, vous pourrez modifier ces informations par la suite (dans le fichier package.json).</p>
 
     <p>Il en suit, la partie la plus importante et la plus amusante : le choix des plugins et leur installation.
         Pour ce faire direction <a href="https://gulpjs.com/plugins" target="_blank">https://gulpjs.com/plugins</a></p>
@@ -52,15 +46,13 @@ npm install --save-dev</pre>
 
     <p>Ils devront être entrés un à un.</p>
 
-    <p>Si vous souhaitez ne pas vous prendre la tête pour le moment, je vous proposez d'installer les modules principaux
-        de
-        Gulp :</p>
+    <p>Si vous souhaitez ne pas vous prendre la tête pour le moment, je vous propose d'installer les modules principaux de Gulp :</p>
 
     <pre class=" bg-light p-3 border-left border-warning ">
 npm install gulp --save-dev</pre>
 
 
-    <p>Une fois fait, un dossier `node_modules` devrait apparaître dans votre projet.
+    <p>Une fois fait, un dossier `node_modules` devrait apparaître dans votre projet. 
         Voilà, il ne reste plus qu'a créer vos automatisations.</p>
 
     <p>Pour cela, vous allez devoir créer un fichier à la racine de votre projet: gulpfile.js.
@@ -79,7 +71,7 @@ var plugins = require('gulp-load-plugins')();
 var source = './src';           <i class="text-success">// dossier de travail</i>
 var destination = './dist';     <i class="text-success">// dossier à livrer.</i></pre>
 
-    <p>À présent, dans ce même fichier, nous aller créer notre première tache : minifier le css</p>
+    <p>À présent, dans ce même fichier, nous allons créer notre première tâche : minifier le css</p>
 
     <pre class=" bg-light p-3 border-left border-warning ">
 gulp.task('minifier', function() {       <i class="text-success">// Tâche "minifier" </i>
@@ -89,14 +81,13 @@ gulp.task('minifier', function() {       <i class="text-success">// Tâche "mini
     .pipe(gulp.dest(destination));       <i class="text-success">// Destination du fichier modifié</i>
 });</pre>
 
-    <p>Pour exécuter cette tâche, il vous faudra réouvrir votre terminal dans votre projet :</p>
+    <p>Pour exécuter cette tâche, il vous faudra rouvrir votre terminal dans votre projet :</p>
 
     <pre class=" bg-light p-3 border-left border-warning ">
 gulp minifier</pre>
 
 
-    <p>Par la suite, quand vous commencerez à avoir plusieurs taches, vous pourrez les regrouper et ainsi donc créer
-        plusieurs zones de devellopement.</p>
+    <p>Et, ainsi, quand vous commencerez à avoir plusieurs tâches, vous pourrez les regrouper et ainsi, créer plusieurs zones de développement.</p>
 
     <p>Par exemple :</p>
 
@@ -107,7 +98,7 @@ gulp.task('build', ['tache']);
 <i class="text-success">// Tâche "prod" = Build + minifier</i>
 gulp.task('prod', ['build', 'minifier']);</pre>
 
-    <p>Voilà, j'espère que cette introduction a Gulp vous a plu. Et que votre curiosité est satisfaite.
-        Dans tous les cas, l'usage de cet outil améliora et optimisera votre façon de travailler.</p>
+    <p>Voilà, j'espère que cette introduction a Gulp vous a plu et que votre curiosité est satisfaite.
+        Quoi qu'il en soit, l'usage de cet outil améliorera et optimisera votre façon de travailler.</p>
     <p>Bon code.</p>
 </div>

@@ -7,8 +7,7 @@ $content = afficheContent('home', $lang, $db);
 ?>
 <style>
     body {
-        background: linear-gradient(45deg, rgba(45, 169, 202, 1) -15%, rgba(134, 211, 103, 1) 95%);
-        height: 95vh;
+        background: linear-gradient(45deg, rgba(45, 169, 202, 1) -15%, rgba(134, 211, 103, 1) 95%) fixed;
     }
 
     .card:nth-child(1) {
@@ -22,12 +21,18 @@ $content = afficheContent('home', $lang, $db);
     .card:nth-child(3) {
         background: linear-gradient(350deg, rgb(235, 160, 76) 10%, rgb(239, 233, 89) 80%);
     }
+    .by {
+        margin-left: 44%;
+        z-index: 100;
+    }
 
 </style>
 <title><?= $page['title_pages'] ?></title>
 <div class="mt-lg-5">
-    <img class="img-fluid p-5 offset-lg-2 col-lg-4" src="view/img/logov1.png">
-
+    <div>
+        <img class="img-fluid pt-5 offset-lg-2 col-lg-4" src="view/img/logov1.png">
+        <p class="by">By <a href="?p=resume">Adrien de Laet</a></p>
+    </div>
     <div class="container d-flex flex-lg-row flex-column justify-content-lg-around justify-content-center">
         <!--Boucle affichage menu home-->
         <?php while ($item = mysqli_fetch_assoc($content)) { ?>

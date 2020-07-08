@@ -11,7 +11,7 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 ?>
 <style>
     body {
-        background: linear-gradient(45deg, rgba(45, 169, 202, 1) -15%, rgba(134, 211, 103, 1) 95%);
+        background: linear-gradient(45deg, rgba(45, 169, 202, 1) -15%, rgba(134, 211, 103, 1) 95%) fixed;
     }
 </style>
 <title><?= $page['title_pages'] ?></title>
@@ -20,29 +20,33 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
     <h1 class="display-4 my-3"><?= $page['title_pages'] ?></h1>
 </div>
 
-<div class="container card col-md-8 col-lg-6 p-5">
+<div class="container card col-md-8 col-lg-5 p-5">
     <!--formulaire insertion reference-->
     <form method="post" enctype="multipart/form-data" class="content">
         <div class="form-group">
 
             <div class="form-group">
                 <p><?= $content[0] ?> :</p>
-                <input class="form-control" name="title_contents_fr" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80" required>
+                <input class="form-control" name="title_contents_fr" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80"
+                       required>
             </div>
 
             <div class="form-group">
                 <p><?= $content[1] ?> :</p>
-                <textarea class="form-control" name="text_contents_fr" cols="20" rows="5" maxlength="200" required></textarea>
+                <textarea class="form-control" name="text_contents_fr" cols="20" rows="5" maxlength="200"
+                          required></textarea>
             </div>
 
             <div class="form-group">
                 <p><?= $content[2] ?> :</p>
-                <input class="form-control" name="title_contents_en" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80" required>
+                <input class="form-control" name="title_contents_en" type="text" pattern="[A-Za-z0-9 ]+$" maxlength="80"
+                       required>
             </div>
 
             <div class="form-group">
                 <p><?= $content[3] ?> :</p>
-                <textarea class="form-control" name="text_contents_en" cols="20" rows="5" maxlength="200" required></textarea>
+                <textarea class="form-control" name="text_contents_en" cols="20" rows="5" maxlength="200"
+                          required></textarea>
             </div>
 
             <div class="form-group">
@@ -53,13 +57,15 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
             <div class="form-group">
                 <p><?= $content[5] ?> :</p>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile" name="name_pics" accept="image/*" required>
+                    <input type="file" class="custom-file-input" id="customFile" name="name_pics" accept="image/*"
+                           required>
                     <label class="custom-file-label" for="customFile">...</label>
                 </div>
             </div>
 
-            <div>
-                <button class="btn btn-outline-info btn-lg btn-block my-5" type="submit" name="create"><?= $content[6] ?></button>
+            <div class="text-center">
+                <button class="btn btn-outline-info btn-lg col-lg-6 col-md-8 mt-4" type="submit"
+                        name="create"><?= $content[6] ?></button>
             </div>
 
         </div>
@@ -73,7 +79,8 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
         <div class="modal-content">
             <form method="post" class="popup">
 
-                <img style="height: 200px" class="img-thumbnail m-3" src="view/img/<?= $read['name_pics'] ?>">
+                <img style="height: 200px" class="img-thumbnail mt-5 rounded mx-auto d-block"
+                     src="view/img/<?= $read['name_pics'] ?>">
 
                 <div class="modal-body">
                     <h1> <?= $read['title_contents'] ?> </h1>
@@ -99,9 +106,8 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
 <?php if (isset ($_POST['view_update'])) { ?>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
-                <form method="post">
-
+            <form method="post">
+                <div class="modal-body">
                     <div class="form-group">
                         <h3><?= $content[9] ?></h3>
                         <input class="form-control" name="title_contents" type="text" pattern="[A-Za-z0-9 '.-]+$"
@@ -119,16 +125,15 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
                         <input class="form-control" name="link_contents" type="url"
                                value="<?= $view_update['link_contents']; ?>" placeholder="https://example.com">
                     </div>
-
-                    <div class="modal-footer">
-                        <button class="btn btn-outline-info btn-lg" type="submit" name="update"
-                                value="<?= $view_update['id_contents']; ?>"><?= $content[14] ?></button>
-                        <button class="btn btn-outline-light btn-lg" type="submit" name="back"><img style="width: 30px;"
-                                                                                                    src="view/img/back.png">
-                        </button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-info btn-lg" type="submit" name="update"
+                            value="<?= $view_update['id_contents']; ?>"><?= $content[14] ?></button>
+                    <button class="btn btn-outline-light btn-lg" type="submit" name="back"><img style="width: 30px;"
+                                                                                                src="view/img/back.png">
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 <?php } ?>
@@ -139,7 +144,7 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'controller' . DI
         <div class="modal-content">
             <form method="post" enctype="multipart/form-data" class="popup">
 
-                <img style="height: 200px" class="img-thumbnail m-3"
+                <img style="height: 200px" class="img-thumbnail mt-5 rounded mx-auto d-block"
                      src="view/img/<?= $view_update_pics['name_pics'] ?>">
 
                 <div class="modal-body m-5">
