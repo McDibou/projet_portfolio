@@ -4,7 +4,7 @@
 
 <img src="https://github.com/McDibou/projet_portfolio/blob/master/view/img/logov1.png" height="100">
 
-http://adrien.webdev-cf2m.be/projet_catalog/
+https://adrien.webdev-cf2m.be/projet_portfolio/
 
 ## Required
 
